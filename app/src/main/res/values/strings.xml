@@ -11,4 +11,6 @@
     <string name="menu_calendar">Calendar</string>
     <string name="menu_forms">Forms</string>
     <string name="menu_resources">Resources</string>
+
+    <string name="outreach"><a href="https://en.wikipedia.org/wiki/Towel">Outreach/Volunteer</a></string>
 </resources>
