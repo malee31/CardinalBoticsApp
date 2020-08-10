@@ -51,14 +51,13 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="228dp"
-        android:background="@color/colorPrimary"
-        android:src="@drawable/cardinalbotics_logo_red"
+        android:layout_width="355dp"
+        android:layout_height="191dp"
+        android:src="@drawable/cardinalbotics_logo_white"
         app:layout_constraintBottom_toTopOf="@+id/toggleButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.666" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
