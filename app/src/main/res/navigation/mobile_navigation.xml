@@ -25,6 +25,6 @@
     <fragment
         android:id="@+id/nav_resources"
         android:name="com.example.cardinalbotics.ui.resources.ResourcesFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:label="@string/menu_resources"
+        tools:layout="@layout/fragment_resources" />
 </navigation>
