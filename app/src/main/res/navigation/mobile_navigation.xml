@@ -22,4 +22,9 @@
         android:name="com.example.cardinalbotics.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_forms"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_resources"
+        android:name="com.example.cardinalbotics.ui.resources.ResourcesFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
 </navigation>
