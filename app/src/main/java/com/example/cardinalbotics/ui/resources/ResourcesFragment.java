@@ -13,9 +13,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.cardinalbotics.R;
-import com.example.cardinalbotics.ui.resources.ResourcesViewModel;
 
 public class ResourcesFragment extends Fragment {
+
     private ResourcesViewModel resourcesViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

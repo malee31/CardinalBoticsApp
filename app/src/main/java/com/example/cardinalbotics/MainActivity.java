@@ -3,6 +3,8 @@ package com.example.cardinalbotics;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -21,11 +23,25 @@ import org.json.JSONException;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        mButton = findViewById(R.id.submit);
+//        mButton.setOnClickListener((View.OnClickListener) this);
+//
+//        @Override
+//        public void onClick(View view)
+//        {
+//            switch (view.getId()) {
+//                case R.id.submit:
+//                    // Do something
+//            }
+//        }
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -53,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 //        } catch(JSONException e) {
 //            e.printStackTrace();
 //        }
+
     }
 
     @Override
@@ -68,4 +85,7 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    Button simpleButton1, simpleButton2;
+
+
 }
