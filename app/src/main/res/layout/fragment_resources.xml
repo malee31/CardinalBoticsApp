@@ -23,7 +23,7 @@
 			android:autoLink="web"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
-			android:text="Button" />
+			android:text="Team Website" />
 
 
 		<Button
@@ -33,7 +33,7 @@
 			android:autoLink="web"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
-			android:text="Button" />
+			android:text="Team Google drive" />
 
 		<Button
 			android:id="@+id/button6"
@@ -42,7 +42,7 @@
 			android:autoLink="web"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
-			android:text="Button" />
+			android:text="roster" />
 
 		<Button
 			android:id="@+id/button7"
@@ -51,7 +51,25 @@
 			android:autoLink="web"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
-			android:text="Button" />
+			android:text="Grant Mastersheet" />
+
+		<Button
+			android:id="@+id/button8"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:autoLink="web"
+			android:backgroundTint="#A17D1120"
+			android:gravity="center_horizontal"
+			android:text="Google calendar" />
+
+		<Button
+			android:id="@+id/button9"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:autoLink="web"
+			android:backgroundTint="#A17D1120"
+			android:gravity="center_horizontal"
+			android:text="Form Mastersheet" />
 	</LinearLayout>
 
 
