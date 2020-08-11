@@ -58,10 +58,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
-
-    public void loginToggle(View view) {
-        AppSharedResources.getInstance(this.getApplicationContext()).timerToggle();
+            || super.onSupportNavigateUp();
     }
 }
