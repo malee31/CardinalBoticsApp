@@ -25,8 +25,8 @@ public class AppSharedResources {
     private Cache cache;
     private Network network = new BasicNetwork(new HurlStack());
     private String
-            sheetURL = "",
-            calendarURL = "";
+            sheetURL = "https://spreadsheets.google.com/feeds/cells/1po_TE36FA-I7J2Y-Biw5snWdfSm_Cx055KVi1c43G7Y/2/public/full?alt=json",
+            calendarURL = "https://www.googleapis.com/calendar/v3/calendars/nicholas.do%40team4159.org/events?key=AIzaSyDRSH4Trb-AdjEdzA06J7WOFLbyhOqnq-M&ctz=America%2FLos_Angeles";
 
     //Timer Variables. Start and End Times should be in Seconds
     private static long start = 0, end = -1;
@@ -94,9 +94,13 @@ public class AppSharedResources {
     }
 
     private long now() { return SystemClock.elapsedRealtime() / 1000; }
+    public boolean timerRunning() { return running; }
+
+    public void requestDataCalendar(Response.Listener<JSONObject> onFinish) { requestData("calendar", onFinish); }
+    public void requestDataSheet(Response.Listener<JSONObject> onFinish) { requestData("sheet", onFinish); }
 
     // Should get a JSON input of all the relevant events to add as a String
-    public void requestData(String type) {
+    private void requestData(String type, Response.Listener<JSONObject> onFinish) {
         String useURL;
         switch (type) {
             case "calendar":
@@ -116,13 +120,7 @@ public class AppSharedResources {
                 Request.Method.GET,
                 useURL,
                 null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        System.out.println("SUCCESS...?");
-                        System.out.println(response.toString());
-                    }
-                },
+                onFinish,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {

@@ -29,11 +29,22 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        ((Button) getView().findViewById(R.id.loginButton)).setOnClickListener(new View.OnClickListener() {
+        ToggleButton loginButton = ((ToggleButton) getView().findViewById(R.id.loginButton));
+
+        //Toggle Timer on click
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AppSharedResources.getInstance(getActivity().getApplicationContext()).timerToggle();
             }
         });
+
+        //Resets state to logged in or logged out
+        loginButton.setChecked(AppSharedResources.getInstance(getActivity().getApplicationContext()).timerRunning());
     }
+
+//    @Override
+//    public View onResume() {
+//
+//    }
 }
