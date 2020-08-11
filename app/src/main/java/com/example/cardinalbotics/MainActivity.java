@@ -62,6 +62,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loginToggle(View view) {
-        Timer.toggle();
+        AppSharedResources.getInstance(this.getApplicationContext()).timerToggle();
     }
 }
