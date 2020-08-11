@@ -107,6 +107,15 @@
 			android:gravity="center_horizontal"
 			android:text="training document" />
 
+		<Button
+			android:id="@+id/button14"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:autoLink="web"
+			android:backgroundTint="#A17D1120"
+			android:gravity="center_horizontal"
+			android:text="IRC Game Manual" />
+
 	</LinearLayout>
 
 
