@@ -14,10 +14,16 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.android.volley.Response;
 import com.example.cardinalbotics.AppSharedResources;
+import com.example.cardinalbotics.EventDecorator;
 import com.example.cardinalbotics.R;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.DayViewFacade;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 public class CalendarFragment extends Fragment {
 
     private CalendarViewModel calendarViewModel;
@@ -30,15 +36,14 @@ public class CalendarFragment extends Fragment {
         return root;
     }
 
-//    @Override
-//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-//        CalendarView calendar = ((CalendarView) getView().findViewById(R.id.calendarView));
-//        AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataCalendar(new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//                System.out.println("SUCCESS...?");
-//                System.out.println(response.toString());
-//            }
-//        });
-//    }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        ArrayList<CalendarDay> dates= new ArrayList<>();
+        dates.add(CalendarDay.from(2020, 8, 14));
+        EventDecorator decor = new EventDecorator(0, dates);
+
+        ((MaterialCalendarView)view.findViewById(R.id.calendarView)).invalidateDecorators();
+        ((MaterialCalendarView)view.findViewById(R.id.calendarView)).addDecorator(decor);
+    }
 }
