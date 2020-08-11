@@ -12,13 +12,14 @@
 		android:layout_height="191dp"
 		android:layout_marginTop="60dp"
 		android:src="@drawable/cardinalbotics_logo_white_clear"
-		app:layout_constraintBottom_toTopOf="@+id/toggleButton2"
+		app:layout_constraintBottom_toTopOf="@+id/tableLayout"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.666" />
+		app:layout_constraintVertical_bias="0.015" />
 
 	<TableLayout
+		android:id="@+id/tableLayout"
 		android:layout_width="412dp"
 		android:layout_height="218dp"
 		android:layout_marginTop="316dp"
@@ -29,27 +30,29 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent">
 
-<!--		<TableRow android:padding="5dip">-->
+		<!--		<TableRow android:padding="5dip">-->
 
-<!--			<TextView-->
-<!--				android:layout_height="wrap_content"-->
-<!--				android:layout_marginBottom="20dp"-->
-<!--				android:layout_span="2"-->
-<!--				android:gravity="center_horizontal"-->
-<!--				android:text="Log in"-->
-<!--				android:textColor="@color/colorPrimary"-->
-<!--				android:textSize="25sp"-->
-<!--				android:textStyle="bold" />-->
-<!--		</TableRow>-->
+		<!--			<TextView-->
+		<!--				android:layout_height="wrap_content"-->
+		<!--				android:layout_marginBottom="20dp"-->
+		<!--				android:layout_span="2"-->
+		<!--				android:gravity="center_horizontal"-->
+		<!--				android:text="Log in"-->
+		<!--				android:textColor="@color/colorPrimary"-->
+		<!--				android:textSize="25sp"-->
+		<!--				android:textStyle="bold" />-->
+		<!--		</TableRow>-->
 
 		<TableRow>
 
 			<TextView
+				android:layout_width="138dp"
 				android:layout_height="wrap_content"
 				android:layout_column="0"
 				android:layout_marginLeft="10dp"
 				android:layout_marginTop="20dp"
 				android:text="Enter student ID"
+				android:textAlignment="center"
 				android:textColor="#000000"
 				android:textSize="16sp" />
 
