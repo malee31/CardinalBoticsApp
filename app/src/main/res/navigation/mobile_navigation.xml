@@ -3,25 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.cardinalbotics.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_resources"
+            app:destination="@id/nav_resources" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_calendar"
+            app:destination="@id/nav_calendar" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_forms"
+            app:destination="@id/nav_forms" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_calendar"
         android:name="com.example.cardinalbotics.ui.calendar.CalendarFragment"
         android:label="@string/menu_calendar"
         tools:layout="@layout/fragment_calendar" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_forms"
         android:name="com.example.cardinalbotics.ui.forms.FormsFragment"
         android:label="@string/menu_forms"
         tools:layout="@layout/fragment_forms" />
+
     <fragment
         android:id="@+id/nav_resources"
         android:name="com.example.cardinalbotics.ui.resources.ResourcesFragment"

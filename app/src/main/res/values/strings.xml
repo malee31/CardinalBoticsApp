@@ -13,4 +13,5 @@
     <string name="menu_resources">Resources</string>
 
     <string name="outreach"><a href="https://en.wikipedia.org/wiki/Towel">Outreach/Volunteer</a></string>
+	<string name="ic_menu_resources">Resources</string>
 </resources>
