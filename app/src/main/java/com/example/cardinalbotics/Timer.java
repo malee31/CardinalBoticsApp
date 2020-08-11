@@ -36,4 +36,9 @@ public class Timer {
         if (running) return -1;
         return end > start ? end - start : -1;
     }
+
+    public static long elapsed(boolean useCurrentTime) {
+        if(useCurrentTime) return running ? SystemClock.elapsedRealtime() / 1000 - start : -1;
+        else return elapsed();
+    }
 }
