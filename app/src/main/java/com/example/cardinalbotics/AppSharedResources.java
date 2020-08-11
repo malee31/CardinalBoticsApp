@@ -25,7 +25,7 @@ public class AppSharedResources {
     private Cache cache;
     private Network network = new BasicNetwork(new HurlStack());
     private String
-            sheetURL = "https://spreadsheets.google.com/feeds/cells/1po_TE36FA-I7J2Y-Biw5snWdfSm_Cx055KVi1c43G7Y/2/public/full?alt=json",
+            sheetURL = "https://sheets.googleapis.com/v4/spreadsheets/1po_TE36FA-I7J2Y-Biw5snWdfSm_Cx055KVi1c43G7Y/values/App%20Assembly!A1:E?key=AIzaSyB2ynMpXWG49Fk-rS0cBZdytUH9GK96NzU",
             calendarURL = "https://www.googleapis.com/calendar/v3/calendars/nicholas.do%40team4159.org/events?key=AIzaSyDRSH4Trb-AdjEdzA06J7WOFLbyhOqnq-M&ctz=America%2FLos_Angeles";
 
     //Timer Variables. Start and End Times should be in Seconds

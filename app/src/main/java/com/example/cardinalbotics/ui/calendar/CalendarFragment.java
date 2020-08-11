@@ -30,15 +30,15 @@ public class CalendarFragment extends Fragment {
         return root;
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        CalendarView calendar = ((CalendarView) getView().findViewById(R.id.calendarView));
-        AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataCalendar(new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                System.out.println("SUCCESS...?");
-                System.out.println(response.toString());
-            }
-        });
-    }
+//    @Override
+//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+//        CalendarView calendar = ((CalendarView) getView().findViewById(R.id.calendarView));
+//        AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataCalendar(new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                System.out.println("SUCCESS...?");
+//                System.out.println(response.toString());
+//            }
+//        });
+//    }
 }
