@@ -100,4 +100,8 @@ public class Requester {
 
 //		return res;
     }
+
+    public static void send(long duration) {
+        System.out.println("Logged in for " + duration + " Seconds");
+    }
 }

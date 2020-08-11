@@ -8,13 +8,14 @@
 	tools:context=".ui.home.HomeFragment">
 
 	<ToggleButton
-		android:id="@+id/toggleButton2"
+		android:id="@+id/loginButton"
 		android:layout_width="123dp"
 		android:layout_height="86dp"
 		android:text="ToggleButton"
 		android:textOff="Sign In"
 		android:textOn="Sign Out"
 		android:textSize="24sp"
+		android:onClick="loginToggle"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="@+id/imageView2"
 		app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -31,9 +32,9 @@
 		android:textAlignment="center"
 		android:textColor="#000000"
 		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="@+id/toggleButton2"
-		app:layout_constraintStart_toStartOf="@+id/toggleButton2"
-		app:layout_constraintTop_toBottomOf="@+id/toggleButton2"
+		app:layout_constraintEnd_toEndOf="@+id/loginButton"
+		app:layout_constraintStart_toStartOf="@+id/loginButton"
+		app:layout_constraintTop_toBottomOf="@+id/loginButton"
 		app:layout_constraintVertical_bias="0.214" />
 
 	<Button
@@ -54,7 +55,7 @@
 		android:layout_width="355dp"
 		android:layout_height="191dp"
 		android:src="@drawable/cardinalbotics_logo_white_clear"
-		app:layout_constraintBottom_toTopOf="@+id/toggleButton2"
+		app:layout_constraintBottom_toTopOf="@+id/loginButton"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"

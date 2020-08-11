@@ -7,21 +7,32 @@ public class Timer {
     private static long start = 0, end = -1;
     private static boolean running = false;
 
-    private Timer() {
-    }
+    private Timer() {}
 
-    private static void start() {
+    public static void start() {
         if (running) return;
         start = SystemClock.elapsedRealtime() / 1000;
         running = true;
     }
 
-    private static void end() {
+    public static void end() {
         if (!running) return;
         end = SystemClock.elapsedRealtime() / 1000;
+        running = false;
     }
 
-    private static long elapsed() {
+    public static void toggle() {
+        if(running) {
+            System.out.println("END TIMER TOGGLE");
+            end();
+            if(elapsed() > 0) Requester.send(elapsed());
+        } else {
+            System.out.println("START TIMER TOGGLE");
+            start();
+        }
+    }
+
+    public static long elapsed() {
         if (running) return -1;
         return end > start ? end - start : -1;
     }
