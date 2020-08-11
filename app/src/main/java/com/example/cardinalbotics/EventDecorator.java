@@ -1,7 +1,5 @@
 package com.example.cardinalbotics;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;

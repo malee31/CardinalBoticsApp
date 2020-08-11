@@ -9,7 +9,7 @@ import android.widget.TableLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.android.volley.Response;
 import com.example.cardinalbotics.AppSharedResources;
@@ -18,18 +18,14 @@ import com.example.cardinalbotics.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 public class FormsFragment extends Fragment {
 
     private FormsViewModel formsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        formsViewModel =
-                ViewModelProviders.of(this).get(FormsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_forms, container, false);
-        return root;
+        formsViewModel = new ViewModelProvider(this).get(FormsViewModel.class);
+        return inflater.inflate(R.layout.fragment_forms, container, false);
     }
 
     @Override
@@ -38,7 +34,6 @@ public class FormsFragment extends Fragment {
         AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataSheet(new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                JSONObject[][] sheetData;
                 try {
                     JSONArray entries = response.getJSONArray("values");
 
