@@ -15,41 +15,32 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONArray;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Scanner;
 
 public class Requester {
-	private static Requester req;
-	private static RequestQueue requestQueue;
-	private static Cache cache;
-	private static Network network = new BasicNetwork(new HurlStack());
+    private static Requester req;
+    private static RequestQueue requestQueue;
+    private static Cache cache;
+    private static Network network = new BasicNetwork(new HurlStack());
 
-	private static String
-			sheetURL = "",
-			calendarURL = "";
+    private static String
+            sheetURL = "",
+            calendarURL = "";
 
-	private Requester (Context cont) {
-		cache = new DiskBasedCache(cont.getCacheDir(), 1024 * 1024); // 1MB cap
-		requestQueue = new RequestQueue(cache, network);
-		requestQueue.start();
-	}
+    private Requester(Context cont) {
+        cache = new DiskBasedCache(cont.getCacheDir(), 1024 * 1024); // 1MB cap
+        requestQueue = new RequestQueue(cache, network);
+        requestQueue.start();
+    }
 
-	public static Requester getInstance(Context cont) {
-		if(null == req) {
-			req = new Requester(cont);
-		}
-		return req;
-	}
+    public static Requester getInstance(Context cont) {
+        if (null == req) {
+            req = new Requester(cont);
+        }
+        return req;
+    }
 
-	// Should get a JSON input of all the relevant events to add as a String
-	public void requestCalendar() throws JSONException {
-
-
-
+    // Should get a JSON input of all the relevant events to add as a String
+    public void requestCalendar() throws JSONException {
 
 
 //		String test = "{\"a\": 5, \"b\": [99, 200]}";
@@ -60,47 +51,47 @@ public class Requester {
 //
 //		System.out.println("JSON ARRAY PARSED");
 //		System.out.println(received.getJSONArray("b").getInt(0));
-	}
+    }
 
-	// Should get a JSON input of all the relevant events to add as a String
-	public void requestData(String type) {
-		String useURL;
-		switch (type) {
-			case "calendar":
-				useURL = calendarURL;
-			break;
-			case "sheet":
-				useURL = sheetURL;
-			break;
-			default:
-				System.out.println("INVALID URL");
-				return;
-		}
+    // Should get a JSON input of all the relevant events to add as a String
+    public void requestData(String type) {
+        String useURL;
+        switch (type) {
+            case "calendar":
+                useURL = calendarURL;
+                break;
+            case "sheet":
+                useURL = sheetURL;
+                break;
+            default:
+                System.out.println("INVALID URL");
+                return;
+        }
 
-		System.out.println("JSON Request being constructed");
+        System.out.println("JSON Request being constructed");
 
-		JsonObjectRequest jsonRequester = new JsonObjectRequest(
-			Request.Method.GET,
-			useURL,
-			null,
-			new Response.Listener<JSONObject>() {
-				@Override
-				public void onResponse(JSONObject response) {
-					System.out.println("SUCCESS...?");
-					System.out.println(response.toString());
-				}
-			},
-			new Response.ErrorListener() {
-				@Override
-				public void onErrorResponse(VolleyError error) {
-					System.out.println("This shouldn't have happened... Bad programmers");
-					error.printStackTrace();
-				}
-			}
-		);
+        JsonObjectRequest jsonRequester = new JsonObjectRequest(
+                Request.Method.GET,
+                useURL,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        System.out.println("SUCCESS...?");
+                        System.out.println(response.toString());
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("This shouldn't have happened... Bad programmers");
+                        error.printStackTrace();
+                    }
+                }
+        );
 
-		requestQueue.add(jsonRequester);
-		System.out.println("Request Sent. Waiting on Response");
+        requestQueue.add(jsonRequester);
+        System.out.println("Request Sent. Waiting on Response");
 //			URL url = new URL(sheetURL);
 //			URLConnection connection = url.openConnection();
 //			connection.setDoOutput(true);
@@ -108,5 +99,5 @@ public class Requester {
 //			res = scanner.useDelimiter("\\Z").next();
 
 //		return res;
-	}
+    }
 }
