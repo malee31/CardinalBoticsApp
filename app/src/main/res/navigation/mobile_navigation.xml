@@ -19,6 +19,9 @@
 		<action
 			android:id="@+id/action_nav_home_to_nav_forms"
 			app:destination="@id/nav_forms" />
+		<action
+			android:id="@+id/action_nav_home_to_nav_training2"
+			app:destination="@id/nav_training" />
 	</fragment>
 
 	<fragment
@@ -38,4 +41,11 @@
 		android:name="com.example.cardinalbotics.ui.resources.ResourcesFragment"
 		android:label="@string/menu_resources"
 		tools:layout="@layout/fragment_resources" />
+
+	<fragment
+		android:id="@+id/nav_training"
+		android:name="com.example.cardinalbotics.ui.training.TrainingFragment"
+		android:label="@string/menu_training"
+		tools:layout="@layout/fragment_training" />
+
 </navigation>

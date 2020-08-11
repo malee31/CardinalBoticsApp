@@ -17,13 +17,13 @@ import com.example.cardinalbotics.ui.resources.ResourcesViewModel;
 
 public class TrainingFragment extends Fragment {
 
-    private TrainingViewModel resourcesViewModel;
+    private TrainingViewModel trainingViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        resourcesViewModel =
-                ViewModelProviders.of(this).get(ResourcesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_resources, container, false);
+        trainingViewModel =
+                ViewModelProviders.of(this).get(TrainingViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_training, container, false);
         return root;
     }
 }
