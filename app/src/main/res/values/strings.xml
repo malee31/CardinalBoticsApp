@@ -12,8 +12,10 @@
 	<string name="menu_forms">Forms</string>
 	<string name="menu_resources">Resources</string>
 	<string name="menu_training">Training</string>
+	<string name="menu_login">Login</string>
 
 	<string name="outreach"><a href="https://en.wikipedia.org/wiki/Towel">Outreach/Volunteer</a></string>
+	<string name="codeacademy"><a href="https://en.wikipedia.org/wiki/Towel">CODEACADEMY</a></string>
 	<string name="ic_menu_resources">Resources</string>
 	<string name="default_calendar_event_desc">More details about the Event go here woooo\nIt\'s gonna be so exciting\nYep</string>
 </resources>

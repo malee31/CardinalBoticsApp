@@ -1,8 +1,8 @@
 package com.example.cardinalbotics.ui.resources;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
+        import androidx.lifecycle.MutableLiveData;
+        import androidx.lifecycle.ViewModel;
 
 public class ResourcesViewModel extends ViewModel {
 
