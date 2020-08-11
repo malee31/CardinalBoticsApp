@@ -1,6 +1,435 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-	xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
 	android:layout_height="match_parent">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.0">
+
+		<TableLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:orientation="vertical"
+			android:stretchColumns="1"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="1.0"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<TableRow android:padding="5dip">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="20dp"
+					android:layout_span="2"
+					android:fontFamily="@font/roboto_bold"
+					android:gravity="center_horizontal"
+					android:text="All Members"
+					android:textColor="@color/colorPrimary"
+					android:textSize="30sp"
+					android:textStyle="bold" />
+			</TableRow>
+
+			<TableRow>
+
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Safety"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="All Departments"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+			</TableRow>
+
+
+			<TableRow android:layout_marginTop="10dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="20dp"
+					android:layout_span="2"
+					android:fontFamily="@font/roboto_bold"
+					android:gravity="center_horizontal"
+					android:text="IRC Workshop"
+					android:textColor="@color/colorPrimary"
+					android:textSize="30sp"
+					android:textStyle="bold" />
+			</TableRow>
+
+			<TableRow>
+
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Hand Drill"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="Tool Training"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+			</TableRow>
+
+			<TableRow android:layout_marginTop="5dp">
+
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Drivetrain"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="Bumper"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
+
+			<TableRow android:layout_marginTop="10dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_span="2"
+					android:fontFamily="@font/roboto_bold"
+					android:gravity="center_horizontal"
+					android:text="Programming"
+					android:textColor="@color/colorPrimary"
+					android:textSize="30sp"
+					android:textStyle="bold" />
+			</TableRow>
+
+			<TableRow>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="20dp"
+					android:layout_span="2"
+					android:fontFamily="@font/roboto_bold"
+					android:gravity="center_horizontal"
+					android:text="Beginner"
+					android:textColor="@color/colorAccent"
+					android:textSize="18sp"
+					android:textStyle="bold" />
+			</TableRow>
+
+			<TableRow>
+
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="CodingBat Python"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="Learn Python"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
+
+			<TableRow android:layout_marginTop="5dp">
+
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="TutorialsPoint"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="Codeacademy"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
+
+			<TableRow android:layout_marginTop="5dp">
+
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="RobotPy Fundamentals"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="Electronics"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
+
+			<TableRow>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="20dp"
+					android:layout_span="2"
+					android:fontFamily="@font/roboto_bold"
+					android:gravity="center_horizontal"
+					android:text="Advanced"
+					android:textColor="@color/colorAccent"
+					android:textSize="18sp"
+					android:textStyle="bold" />
+			</TableRow>
+
+			<TableRow>
+
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Java Codeacademyt"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="CodingBat(Java)"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
+
+			<TableRow android:layout_marginTop="5dp">
+
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Pathfinder"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="Complex Robot Logic"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
+			<TableRow android:layout_marginTop="10dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_span="2"
+					android:fontFamily="@font/roboto_bold"
+					android:gravity="center_horizontal"
+					android:text="Design/Prototyping"
+					android:textColor="@color/colorPrimary"
+					android:textSize="30sp"
+					android:textStyle="bold" />
+			</TableRow>
+
+			<TableRow>
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="20dp"
+					android:layout_span="2"
+					android:fontFamily="@font/roboto_bold"
+					android:gravity="center_horizontal"
+					android:text="Beginner"
+					android:textColor="@color/colorAccent"
+					android:textSize="18sp"
+					android:textStyle="bold" />
+			</TableRow>
+
+			<TableRow>
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Prototyping Process"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="Example"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
+
+			<TableRow>
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="20dp"
+					android:layout_span="2"
+					android:fontFamily="@font/roboto_bold"
+					android:gravity="center_horizontal"
+					android:text="Advanced"
+					android:textColor="@color/colorAccent"
+					android:textSize="18sp"
+					android:textStyle="bold" />
+			</TableRow>
+
+			<TableRow>
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="notdone"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="notdone"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
+			<TableRow android:layout_marginTop="5dp">
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="notdone"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+
+					android:fontFamily="@font/roboto_bold"
+					android:text="notdone"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+		</TableRow>
+		<TableRow>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_span="2"
+				android:fontFamily="@font/roboto_bold"
+				android:gravity="center_horizontal"
+				android:text="CAD"
+				android:textColor="@color/colorPrimary"
+				android:textSize="30sp"
+				android:textStyle="bold" />
+		</TableRow>
+
+		<TableRow android:layout_marginBottom="20dp">
+			<TextView
+				android:layout_width="200dp"
+				android:layout_height="wrap_content"
+				android:layout_column="0"
+				android:fontFamily="@font/roboto_bold"
+				android:text="Intro CAD Projects"
+				android:textAlignment="center"
+				android:textColor="#000000"
+				android:textSize="16sp" />
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_column="1"
+				android:fontFamily="@font/roboto_bold"
+				android:text="Manufacturing"
+				android:textAlignment="center"
+				android:textColor="#000000"
+				android:textSize="16sp" />
+		</TableRow>
+
+		</TableLayout>
+	</ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

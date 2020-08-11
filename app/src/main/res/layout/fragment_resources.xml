@@ -70,6 +70,43 @@
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="Form Mastersheet" />
+
+		<Button
+			android:id="@+id/button10"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:autoLink="web"
+			android:backgroundTint="#A17D1120"
+			android:gravity="center_horizontal"
+			android:text="google photos" />
+
+		<Button
+			android:id="@+id/button11"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:autoLink="web"
+			android:backgroundTint="#A17D1120"
+			android:gravity="center_horizontal"
+			android:text="youtube channel" />
+
+		<Button
+			android:id="@+id/button12"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:autoLink="web"
+			android:backgroundTint="#A17D1120"
+			android:gravity="center_horizontal"
+			android:text="handbooks" />
+
+		<Button
+			android:id="@+id/button13"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:autoLink="web"
+			android:backgroundTint="#A17D1120"
+			android:gravity="center_horizontal"
+			android:text="training document" />
+
 	</LinearLayout>
 
 
