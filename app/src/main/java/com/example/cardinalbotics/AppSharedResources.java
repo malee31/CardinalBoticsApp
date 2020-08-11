@@ -14,17 +14,17 @@ import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonObjectRequest;
 
-import org.json.JSONException;
+//import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AppSharedResources {
     private static AppSharedResources allResources;
-    private static Context appContext;
+    private Context appContext;
     //Requester Variables
-    private static RequestQueue requestQueue;
-    private static Cache cache;
-    private static Network network = new BasicNetwork(new HurlStack());
-    private static String
+    private RequestQueue requestQueue;
+    private Cache cache;
+    private Network network = new BasicNetwork(new HurlStack());
+    private String
             sheetURL = "",
             calendarURL = "";
 
@@ -56,8 +56,6 @@ public class AppSharedResources {
     public void timerStop() {
         if (!running) {
             System.out.println("The Timer is not running!!!");
-        } else if (end < start) {
-            System.out.println("The Timer hasn't been started yet!!!");
         } else {
             end = SystemClock.elapsedRealtime() / 1000;
             running = false;
@@ -68,7 +66,7 @@ public class AppSharedResources {
         if(running) {
             System.out.println("END TIMER TOGGLED");
             timerStop();
-            if(timerElapsed() > 0) System.out.println("Time Elapsed: " + timerElapsed());
+            if(timerElapsed() > 0) sendTime(timerElapsed());
         } else {
             System.out.println("START TIMER TOGGLED");
             timerStart();
@@ -97,4 +95,48 @@ public class AppSharedResources {
 
     private long now() { return SystemClock.elapsedRealtime() / 1000; }
 
+    // Should get a JSON input of all the relevant events to add as a String
+    public void requestData(String type) {
+        String useURL;
+        switch (type) {
+            case "calendar":
+                useURL = calendarURL;
+                break;
+            case "sheet":
+                useURL = sheetURL;
+                break;
+            default:
+                System.out.println("INVALID URL");
+                return;
+        }
+
+        System.out.println("JSON Request being constructed");
+
+        JsonObjectRequest jsonRequester = new JsonObjectRequest(
+                Request.Method.GET,
+                useURL,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        System.out.println("SUCCESS...?");
+                        System.out.println(response.toString());
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("This shouldn't have happened... Bad programmers");
+                        error.printStackTrace();
+                    }
+                }
+        );
+
+        requestQueue.add(jsonRequester);
+        System.out.println("Request Sent. Waiting on Response");
+    }
+
+    public void sendTime(long duration) {
+        System.out.println("Logged in for " + duration + " Seconds");
+    }
 }
