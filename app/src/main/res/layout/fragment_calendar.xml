@@ -7,19 +7,25 @@
 	android:backgroundTint="@color/colorPrimary"
 	tools:context=".ui.calendar.CalendarFragment">
 
-	<CalendarView
-		android:id="@+id/calendarView"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:focusedMonthDateColor="#9C3131"
-		android:foregroundTint="#C83535"
-		android:selectedWeekBackgroundColor="#9C3131"
+	<com.github.sundeepk.compactcalendarview.CompactCalendarView
+		android:id="@+id/compactcalendar_view"
+		android:layout_width="fill_parent"
+		android:layout_height="250dp"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+		app:compactCalendarBackgroundColor="#00000000"
+		app:compactCalendarCurrentDayBackgroundColor="@color/colorAccent"
+		app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
+		app:compactCalendarMultiEventIndicatorColor="#fff"
+		app:compactCalendarTargetHeight="250dp"
+		app:compactCalendarTextColor="#000"
+		app:compactCalendarTextSize="12sp"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintHorizontal_bias="0.0"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.0" />
+		app:layout_constraintVertical_bias="0.228" />
 
 	<TextView
 		android:id="@+id/textView3"
@@ -31,7 +37,7 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintHorizontal_bias="0.0"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/calendarView"
-		app:layout_constraintVertical_bias="0.05" />
+		app:layout_constraintTop_toBottomOf="@+id/compactcalendar_view"
+		app:layout_constraintVertical_bias="0.344" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
