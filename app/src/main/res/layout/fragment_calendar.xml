@@ -7,37 +7,13 @@
 	android:backgroundTint="@color/colorPrimary"
 	tools:context=".ui.calendar.CalendarFragment">
 
-	<com.github.sundeepk.compactcalendarview.CompactCalendarView
-		android:id="@+id/compactcalendar_view"
-		android:layout_width="fill_parent"
-		android:layout_height="250dp"
-		android:paddingLeft="10dp"
-		android:paddingRight="10dp"
-		app:compactCalendarBackgroundColor="#00000000"
-		app:compactCalendarCurrentDayBackgroundColor="@color/colorAccent"
-		app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
-		app:compactCalendarMultiEventIndicatorColor="#fff"
-		app:compactCalendarTargetHeight="250dp"
-		app:compactCalendarTextColor="#000"
-		app:compactCalendarTextSize="12sp"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.0"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.228" />
 
-	<TextView
-		android:id="@+id/textView3"
+	<com.prolificinteractive.materialcalendarview.MaterialCalendarView
+		android:id="@+id/calendarView"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/default_calendar_event_desc"
-		android:textAlignment="center"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.0"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/compactcalendar_view"
-		app:layout_constraintVertical_bias="0.344" />
+		android:layout_height="match_parent"
+		app:mcv_showOtherDates="other_months" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
