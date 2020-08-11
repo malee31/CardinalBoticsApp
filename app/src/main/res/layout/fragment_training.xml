@@ -289,112 +289,7 @@
 					android:textColor="#000000"
 					android:textSize="16sp" />
 			</TableRow>
-			<TableRow android:layout_marginTop="10dp">
 
-				<TextView
-					android:layout_height="wrap_content"
-					android:layout_span="2"
-					android:fontFamily="@font/roboto_bold"
-					android:gravity="center_horizontal"
-					android:text="Design/Prototyping"
-					android:textColor="@color/colorPrimary"
-					android:textSize="30sp"
-					android:textStyle="bold" />
-			</TableRow>
-
-			<TableRow>
-				<TextView
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="20dp"
-					android:layout_span="2"
-					android:fontFamily="@font/roboto_bold"
-					android:gravity="center_horizontal"
-					android:text="Beginner"
-					android:textColor="@color/colorAccent"
-					android:textSize="18sp"
-					android:textStyle="bold" />
-			</TableRow>
-
-			<TableRow>
-				<TextView
-					android:layout_width="200dp"
-					android:layout_height="wrap_content"
-
-					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Prototyping Process"
-					android:textAlignment="center"
-					android:textColor="#000000"
-					android:textSize="16sp" />
-
-				<TextView
-					android:layout_height="wrap_content"
-					android:layout_column="1"
-
-					android:fontFamily="@font/roboto_bold"
-					android:text="Example"
-					android:textAlignment="center"
-					android:textColor="#000000"
-					android:textSize="16sp" />
-			</TableRow>
-
-			<TableRow>
-				<TextView
-					android:layout_height="wrap_content"
-					android:layout_marginBottom="20dp"
-					android:layout_span="2"
-					android:fontFamily="@font/roboto_bold"
-					android:gravity="center_horizontal"
-					android:text="Advanced"
-					android:textColor="@color/colorAccent"
-					android:textSize="18sp"
-					android:textStyle="bold" />
-			</TableRow>
-
-			<TableRow>
-				<TextView
-					android:layout_width="200dp"
-					android:layout_height="wrap_content"
-
-					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="notdone"
-					android:textAlignment="center"
-					android:textColor="#000000"
-					android:textSize="16sp" />
-
-				<TextView
-					android:layout_height="wrap_content"
-					android:layout_column="1"
-
-					android:fontFamily="@font/roboto_bold"
-					android:text="notdone"
-					android:textAlignment="center"
-					android:textColor="#000000"
-					android:textSize="16sp" />
-			</TableRow>
-			<TableRow android:layout_marginTop="5dp">
-				<TextView
-					android:layout_width="200dp"
-					android:layout_height="wrap_content"
-
-					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="notdone"
-					android:textAlignment="center"
-					android:textColor="#000000"
-					android:textSize="16sp" />
-
-				<TextView
-					android:layout_height="wrap_content"
-					android:layout_column="1"
-
-					android:fontFamily="@font/roboto_bold"
-					android:text="notdone"
-					android:textAlignment="center"
-					android:textColor="#000000"
-					android:textSize="16sp" />
-		</TableRow>
 		<TableRow>
 
 			<TextView
@@ -428,7 +323,60 @@
 				android:textColor="#000000"
 				android:textSize="16sp" />
 		</TableRow>
+			<TableRow>
 
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_span="2"
+					android:fontFamily="@font/roboto_bold"
+					android:gravity="center_horizontal"
+					android:text="CAD"
+					android:textColor="@color/colorPrimary"
+					android:textSize="30sp"
+					android:textStyle="bold" />
+			</TableRow>
+
+			<TableRow>
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Intro CAD Projects"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Manufacturing"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
+
+			<TableRow android:layout_marginTop="5dp">
+				<TextView
+					android:layout_width="200dp"
+					android:layout_height="wrap_content"
+					android:layout_column="0"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Intro CAD Projects"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+					android:fontFamily="@font/roboto_bold"
+					android:text="Manufacturing"
+					android:textAlignment="center"
+					android:textColor="#000000"
+					android:textSize="16sp" />
+			</TableRow>
 		</TableLayout>
 	</ScrollView>
 
