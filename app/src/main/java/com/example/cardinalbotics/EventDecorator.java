@@ -1,10 +1,19 @@
 package com.example.cardinalbotics;
 
+import android.os.Build;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.spans.DotSpan;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -19,7 +28,6 @@ public class EventDecorator
         this.color = color;
         this.dates = new HashSet<>(dates);
 
-
     }
 
     @Override
@@ -27,8 +35,11 @@ public class EventDecorator
         return dates.contains(day);
     }
 
+
     @Override
     public void decorate(DayViewFacade view) {
-        view.addSpan(new DotSpan(5, color));
+        view.addSpan(new DotSpan(10, color));
     }
+
+
 }
