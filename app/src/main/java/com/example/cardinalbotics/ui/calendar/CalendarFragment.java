@@ -26,6 +26,10 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 //    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEE, d MMM yyyy");
     TextView textView;
     MaterialCalendarView widget;
+//    ArrayList<CalendarDay> eventDay;
+//    ArrayList<String> eventName;
+    String eventName="Ayaka's Birthday";
+    CalendarDay eventDay=CalendarDay.from(2020, 8, 14);
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
@@ -49,7 +53,11 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
     }
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-//      textView.setText(selected ? FORMATTER.format(date.getDate()) : "No Selection");
-        textView.setText("event");
+        if(eventDay.equals(date)){
+            textView.setText(eventName);
+        }else{
+            textView.setText("No Event");
+        }
     }
+
 }

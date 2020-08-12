@@ -25,8 +25,6 @@ public class EventDecorator
     public boolean shouldDecorate(CalendarDay day) {
         return dates.contains(day);
     }
-
-
     @Override
     public void decorate(DayViewFacade view) {
         view.addSpan(new DotSpan(10, color));
