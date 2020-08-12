@@ -162,6 +162,6 @@ public class AppSharedResources {
 	}
 
 	public String storeGet(String key) {
-		return sharedPrefs.getString(key, "None found");
+		return sharedPrefs.getString(key, "No Entry");
 	}
 }

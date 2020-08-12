@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cardinalbotics.AppSharedResources;
 import com.example.cardinalbotics.R;
+import com.google.android.material.snackbar.Snackbar;
 
 public class HomeFragment extends Fragment {
 
@@ -27,16 +28,20 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         ToggleButton loginButton = ((ToggleButton) getView().findViewById(R.id.loginButton));
 
         //Toggle Timer on click
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(AppSharedResources.getInstance(getActivity().getApplicationContext()).storeGet("password").equals("No Entry")) {
+                    ((ToggleButton) v).setChecked(false);
+                    Snackbar.make(view, "You're not logged in! Do that before Signing in", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
                 AppSharedResources.getInstance(getActivity().getApplicationContext()).timerToggle();
                 String url="https://google.com";
-
             }
         });
 
