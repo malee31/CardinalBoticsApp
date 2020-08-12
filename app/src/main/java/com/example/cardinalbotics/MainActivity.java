@@ -1,15 +1,8 @@
 package com.example.cardinalbotics;
 
 import android.os.Bundle;
-import android.text.Html;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.Menu;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -26,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    TextView textview;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 //        link.setText(
 //                Html.fromHtml("<a href='myscheme://www.google.com'>link</a>"));
 //        link.setMovementMethod(LinkMovementMethod.getInstance());
-
 
 
         setContentView(R.layout.activity_main);
@@ -74,6 +66,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-            || super.onSupportNavigateUp();
+                || super.onSupportNavigateUp();
     }
 }

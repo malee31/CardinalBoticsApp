@@ -15,5 +15,4 @@
 		app:mcv_showOtherDates="other_months" />
 
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
