@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity{
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    
     public void link(View view){
         if(view.getId()==R.id.button1){
             Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.team4159.org/"));
@@ -132,6 +133,5 @@ public class MainActivity extends AppCompatActivity{
             Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
             startActivity(browserIntent);
         }
-
     }
 }

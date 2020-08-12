@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cardinalbotics.AppSharedResources;
 import com.example.cardinalbotics.R;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class HomeFragment extends Fragment {
 
@@ -27,14 +30,31 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         ToggleButton loginButton = ((ToggleButton) getView().findViewById(R.id.loginButton));
 
         //Toggle Timer on click
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppSharedResources.getInstance(getActivity().getApplicationContext()).timerToggle();
+                AppSharedResources shared = AppSharedResources.getInstance(getActivity().getApplicationContext());
+                if(shared.storeGet("password").equals("No Entry")) {
+                    ((ToggleButton) v).setChecked(false);
+                    Snackbar.make(v, "You're not logged in! Do that before Signing in", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
+                if(((ToggleButton) v).isChecked()) {
+                    shared.timerStart();
+                } else {
+                    if(((TextInputEditText)getActivity().findViewById(R.id.textInputEditText)).getText().length() == 0) {
+                        System.out.println("NO TEXT");
+                        Snackbar.make(getView(), "Type in what you did today. It can't be blank!", Snackbar.LENGTH_LONG).show();
+                        ((ToggleButton) v).setChecked(true);
+                        return;
+                    }
+                    System.out.println("STOP");
+                    shared.timerStop();
+                }
             }
         });
         //Resets state to logged in or logged out
