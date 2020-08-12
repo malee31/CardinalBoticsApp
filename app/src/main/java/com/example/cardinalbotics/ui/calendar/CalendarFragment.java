@@ -50,6 +50,6 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
 //      textView.setText(selected ? FORMATTER.format(date.getDate()) : "No Selection");
-        textView.setText("YEEEEEEEEEEEEEEEEEEEEEEE");
+        textView.setText("event");
     }
 }
