@@ -35,15 +35,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 AppSharedResources.getInstance(getActivity().getApplicationContext()).timerToggle();
-                String url="https://google.com";
-
             }
         });
-
-
         //Resets state to logged in or logged out
         loginButton.setChecked(AppSharedResources.getInstance(getActivity().getApplicationContext()).timerRunning());
     }
+
 
 //    @Override
 //    public View onResume() {
