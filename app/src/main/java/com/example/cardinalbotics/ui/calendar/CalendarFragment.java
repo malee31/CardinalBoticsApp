@@ -26,14 +26,17 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 //    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEE, d MMM yyyy");
     TextView textView;
     MaterialCalendarView widget;
-//    ArrayList<CalendarDay> eventDay;
-//    ArrayList<String> eventName;
+//    public ArrayList<CalendarDay> eventDay=new ArrayList<>();
+//    ArrayList<String> eventName=new ArrayList<>();
     String eventName="Ayaka's Birthday";
     CalendarDay eventDay=CalendarDay.from(2020, 8, 14);
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
         return inflater.inflate(R.layout.fragment_calendar, container, false);
+//        eventDay.add(CalendarDay.from(2020, 8, 14));
+
     }
 
     @Override

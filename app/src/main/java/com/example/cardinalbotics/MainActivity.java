@@ -38,8 +38,10 @@ public class MainActivity extends AppCompatActivity{
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "email ayaka.chou@team4159.org if you have any questions on how to use app", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:ayaka.chou@team4159.org"));
+                startActivity(browserIntent);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -133,5 +135,8 @@ public class MainActivity extends AppCompatActivity{
             Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/document/d/17RjyV-YCr4_zKslnDachYI_9EAM11asWkexZfDYN4CM/edit?usp=sharing"));
             startActivity(browserIntent);
         }
+    }
+    public void training(View view){
+
     }
 }
