@@ -12,7 +12,14 @@
 		android:id="@+id/calendarView"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		app:mcv_showOtherDates="other_months" />
+		app:mcv_showOtherDates="other_months" >
+
+		<TextView
+			android:id="@+id/calendartext"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="TextView" />
+	</com.prolificinteractive.materialcalendarview.MaterialCalendarView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
