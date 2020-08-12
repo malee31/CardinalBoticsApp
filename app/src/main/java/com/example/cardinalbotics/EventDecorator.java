@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 
-public class EventDecorator extends AppCompatActivity
+public class EventDecorator
         implements DayViewDecorator {
 
     private final int color;
