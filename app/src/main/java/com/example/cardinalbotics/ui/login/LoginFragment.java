@@ -25,6 +25,7 @@ public class LoginFragment extends Fragment {
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 ViewGroup container, Bundle savedInstanceState) {
 		loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+		System.out.println("PASSWORD SET TO: " + AppSharedResources.getInstance(getActivity().getApplicationContext()).storeGet("password"));
 		return inflater.inflate(R.layout.fragment_login, container, false);
 
 	}

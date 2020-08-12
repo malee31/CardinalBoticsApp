@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-                ((TextView)findViewById(R.id.idArea)).setText(AppSharedResources.getInstance(getApplicationContext()).storeGet("password"));
+                ((TextView)findViewById(R.id.studentId)).setText(AppSharedResources.getInstance(getApplicationContext()).storeGet("password"));
             }
 
             @Override
