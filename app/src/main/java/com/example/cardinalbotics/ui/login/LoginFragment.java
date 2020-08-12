@@ -21,6 +21,7 @@ public class LoginFragment extends Fragment {
 
 	private LoginViewModel loginViewModel;
 	TextView textView;
+	public EditText editText;
 
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 ViewGroup container, Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class LoginFragment extends Fragment {
 	@Override
 	public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
 		textView=view.findViewById(R.id.studentId);
+		editText = ((EditText) getView().findViewById(R.id.password));
 		view.findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -41,6 +43,7 @@ public class LoginFragment extends Fragment {
 				AppSharedResources.getInstance(getActivity().getApplicationContext()).store("password", passwd);
 				System.out.println("PASSWORD SET TO: " + AppSharedResources.getInstance(getActivity().getApplicationContext()).storeGet("password"));
 				((TextView)getActivity().findViewById(R.id.studentId)).setText(passwd);
+				((EditText)getActivity().findViewById(R.id.password)).setText("");
 			}
 		});
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
@@ -22,16 +23,20 @@ import com.google.android.material.textfield.TextInputEditText;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    public EditText editText;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         return inflater.inflate(R.layout.fragment_home, container, false);
+
+
     }
 
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         ToggleButton loginButton = ((ToggleButton) getView().findViewById(R.id.loginButton));
+        editText = ((EditText) getView().findViewById(R.id.textInputEditText));
 
         //Toggle Timer on click
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +59,7 @@ public class HomeFragment extends Fragment {
                     }
                     System.out.println("STOP");
                     shared.timerStop();
+                    ((EditText)getActivity().findViewById(R.id.textInputEditText)).setText("");
                 }
             }
         });
