@@ -16,17 +16,17 @@
 			android:id="@+id/nav_calendar"
 			android:icon="@drawable/ic_menu_calendar"
 			android:title="@string/menu_calendar" />
-		<item
-			android:id="@+id/nav_forms"
-			android:icon="@drawable/ic_menu_forms"
-			android:title="@string/menu_forms" />
+<!--		<item-->
+<!--			android:id="@+id/nav_forms"-->
+<!--			android:icon="@drawable/ic_menu_forms"-->
+<!--			android:title="@string/menu_forms" />-->
 		<item
 			android:id="@+id/nav_resources"
 			android:icon="@drawable/ic_menu_resources"
 			android:title="@string/ic_menu_resources" />
-		<item
-			android:id="@+id/nav_training"
-			android:icon="@drawable/ic_menu_training"
-			android:title="@string/menu_training" />
+<!--		<item-->
+<!--			android:id="@+id/nav_training"-->
+<!--			android:icon="@drawable/ic_menu_training"-->
+<!--			android:title="@string/menu_training" />-->
 	</group>
 </menu>

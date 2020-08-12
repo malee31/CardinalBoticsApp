@@ -1,5 +1,7 @@
 package com.example.cardinalbotics.ui.home;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +35,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 AppSharedResources.getInstance(getActivity().getApplicationContext()).timerToggle();
+                String url="https://google.com";
+
             }
         });
+
 
         //Resets state to logged in or logged out
         loginButton.setChecked(AppSharedResources.getInstance(getActivity().getApplicationContext()).timerRunning());
