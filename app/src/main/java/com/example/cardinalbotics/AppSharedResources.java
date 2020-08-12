@@ -157,6 +157,11 @@ public class AppSharedResources {
 	}
 
 	public void store(String key, String value) {
+		prefsEditor.putString(key, value);
+		prefsEditor.commit();
+	}
 
+	public String storeGet(String key) {
+		return sharedPrefs.getString(key, "None found");
 	}
 }
