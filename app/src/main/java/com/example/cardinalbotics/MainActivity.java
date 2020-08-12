@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,21 +24,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.fragment_training);
-//
-//        TextView link = (TextView)findViewById(R.id.towel);
-//        link.setText(
-//                Html.fromHtml("<a href='myscheme://www.google.com'>link</a>"));
-//        link.setMovementMethod(LinkMovementMethod.getInstance());
-
-
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -96,8 +89,49 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    public void submit(View view){
-        Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/Towel"));
-        startActivity(browserIntent);
+    public void link(View view){
+        if(view.getId()==R.id.button1){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.team4159.org/"));
+            startActivity(browserIntent);
+        }else if(view.getId()==R.id.button2){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://drive.google.com/drive/folders/1i3iPyM8DhkLzd8wtGz9jn305scfvdKW2?usp=sharing"));
+            startActivity(browserIntent);
+        }
+        else if(view.getId()==R.id.button3){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(browserIntent);
+        }
+        else if(view.getId()==R.id.button4){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(browserIntent);
+        }
+        else if(view.getId()==R.id.button5){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(browserIntent);
+        }
+        else if(view.getId()==R.id.button6){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(browserIntent);
+        }
+        else if(view.getId()==R.id.button7){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(browserIntent);
+        }
+        else if(view.getId()==R.id.button8){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(browserIntent);
+        }
+        else if(view.getId()==R.id.button9){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(browserIntent);
+        }
+        else if(view.getId()==R.id.button10){
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(browserIntent);
+        }else{
+            Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+            startActivity(browserIntent);
+        }
+
     }
 }
