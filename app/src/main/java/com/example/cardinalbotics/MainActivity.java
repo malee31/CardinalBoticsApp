@@ -1,5 +1,7 @@
 package com.example.cardinalbotics;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-                ((TextView)findViewById(R.id.idArea)).setText(AppSharedResources.getInstance(getApplicationContext()).storeGet("password"));
+                ((TextView)findViewById(R.id.studentId)).setText(AppSharedResources.getInstance(getApplicationContext()).storeGet("password"));
             }
 
             @Override
@@ -93,5 +95,9 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+    public void submit(View view){
+        Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/Towel"));
+        startActivity(browserIntent);
     }
 }
