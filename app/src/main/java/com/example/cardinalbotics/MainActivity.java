@@ -30,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		Toolbar toolbar = findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		FloatingActionButton fab = findViewById(R.id.fab);
-		fab.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Snackbar.make(view, "email ayaka.chou@team4159.org if you have any questions on how to use app", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:ayaka.chou@team4159.org"));
-				startActivity(browserIntent);
-			}
-		});
+//		FloatingActionButton fab = findViewById(R.id.fab);
+//		fab.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View view) {
+//				Snackbar.make(view, "email ayaka.chou@team4159.org if you have any questions on how to use app", Snackbar.LENGTH_LONG)
+//						.setAction("Action", null).show();
+//				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:ayaka.chou@team4159.org"));
+//				startActivity(browserIntent);
+//			}
+//		});
 		DrawerLayout drawer = findViewById(R.id.drawer_layout);
 		drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
 			@Override
@@ -126,6 +126,99 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void training(View view) {
-
+		if (view.getId() == R.id.button12) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/presentation/d/1-3JSEriTv5PFjdkyCE34i-5jmUD_zAhhj0TTWjjj3x4/edit?usp=sharing"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button13) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button14) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button15) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button16) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button17) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button18) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button19) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button20) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button21) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button22) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button23) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button24) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button25) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button26) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button27) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button28) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button29) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button30) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button31) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button32) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button33) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button34) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button35) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button36) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button37) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button38) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button39) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button40) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else if (view.getId() == R.id.button41) {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}else{
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			startActivity(browserIntent);
+		}
 	}
 }
