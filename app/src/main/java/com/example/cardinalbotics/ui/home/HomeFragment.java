@@ -63,10 +63,4 @@ public class HomeFragment extends Fragment {
 		//Resets state to logged in or logged out
 		loginButton.setChecked(AppSharedResources.getInstance(getActivity().getApplicationContext()).timerRunning());
 	}
-
-
-//    @Override
-//    public View onResume() {
-//
-//    }
 }
