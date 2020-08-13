@@ -47,6 +47,8 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 
 		ArrayList<CalendarDay> dates = new ArrayList<>();
 		dates.add(CalendarDay.from(2020, 8, 14));
+		dates.add(CalendarDay.from(2020, 9, 16));
+		dates.add(CalendarDay.from(2020, 8, 18));
 		EventDecorator decor = new EventDecorator(0, dates);
 
 		((MaterialCalendarView) view.findViewById(R.id.calendarView)).invalidateDecorators();
