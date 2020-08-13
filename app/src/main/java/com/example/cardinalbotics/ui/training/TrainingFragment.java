@@ -13,11 +13,11 @@ import com.example.cardinalbotics.R;
 
 public class TrainingFragment extends Fragment {
 
-    private TrainingViewModel trainingViewModel;
+	private TrainingViewModel trainingViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        trainingViewModel = new ViewModelProvider(this).get(TrainingViewModel.class);
-        return inflater.inflate(R.layout.fragment_training, container, false);
-    }
+	public View onCreateView(@NonNull LayoutInflater inflater,
+							 ViewGroup container, Bundle savedInstanceState) {
+		trainingViewModel = new ViewModelProvider(this).get(TrainingViewModel.class);
+		return inflater.inflate(R.layout.fragment_training, container, false);
+	}
 }

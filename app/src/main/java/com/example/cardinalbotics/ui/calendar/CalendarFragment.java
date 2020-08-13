@@ -17,50 +17,50 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class CalendarFragment extends Fragment implements OnDateSelectedListener {
 
-    private CalendarViewModel calendarViewModel;
-//    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEE, d MMM yyyy");
-    TextView textView;
-    MaterialCalendarView widget;
-//    public ArrayList<CalendarDay> eventDay=new ArrayList<>();
+	//    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEE, d MMM yyyy");
+	TextView textView;
+	MaterialCalendarView widget;
+	//    public ArrayList<CalendarDay> eventDay=new ArrayList<>();
 //    ArrayList<String> eventName=new ArrayList<>();
-    String eventName="Ayaka's Birthday";
-    CalendarDay eventDay=CalendarDay.from(2020, 8, 14);
+	String eventName = "Ayaka's Birthday";
+	CalendarDay eventDay = CalendarDay.from(2020, 8, 14);
+	private CalendarViewModel calendarViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
-        return inflater.inflate(R.layout.fragment_calendar, container, false);
+	public View onCreateView(@NonNull LayoutInflater inflater,
+							 ViewGroup container, Bundle savedInstanceState) {
+		calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
+		return inflater.inflate(R.layout.fragment_calendar, container, false);
 //        eventDay.add(CalendarDay.from(2020, 8, 14));
 
-    }
+	}
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+	@Override
+	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        ArrayList<CalendarDay> dates = new ArrayList<>();
-        dates.add(CalendarDay.from(2020, 8, 14));
-        EventDecorator decor = new EventDecorator(0, dates);
+		ArrayList<CalendarDay> dates = new ArrayList<>();
+		dates.add(CalendarDay.from(2020, 8, 14));
+		EventDecorator decor = new EventDecorator(0, dates);
 
-        ((MaterialCalendarView) view.findViewById(R.id.calendarView)).invalidateDecorators();
-        ((MaterialCalendarView) view.findViewById(R.id.calendarView)).addDecorator(decor);
+		((MaterialCalendarView) view.findViewById(R.id.calendarView)).invalidateDecorators();
+		((MaterialCalendarView) view.findViewById(R.id.calendarView)).addDecorator(decor);
 
-        textView=view.findViewById(R.id.calendartext);
-        widget= view.findViewById(R.id.calendarView);
-        widget.setOnDateChangedListener(this);
-        textView.setText("No Selection");
-    }
-    @Override
-    public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-        if(eventDay.equals(date)){
-            textView.setText(eventName);
-        }else{
-            textView.setText("No Event");
-        }
-    }
+		textView = view.findViewById(R.id.calendartext);
+		widget = view.findViewById(R.id.calendarView);
+		widget.setOnDateChangedListener(this);
+		textView.setText("No Selection");
+	}
+
+	@Override
+	public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+		if (eventDay.equals(date)) {
+			textView.setText(eventName);
+		} else {
+			textView.setText("No Event");
+		}
+	}
 
 }

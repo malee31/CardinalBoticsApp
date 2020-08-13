@@ -42,12 +42,12 @@
 
 				<Button
 					android:id="@+id/button12"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
 					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="Safety"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -55,11 +55,11 @@
 
 				<Button
 					android:id="@+id/button13"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
 					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="All Departments"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -86,12 +86,12 @@
 
 				<Button
 					android:id="@+id/button14"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
-					android:backgroundTint="#A17D1120"
 					android:layout_column="0"
+					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="Hand Drill"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -99,11 +99,11 @@
 
 				<Button
 					android:id="@+id/button15"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
 					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="Tool Training"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -115,12 +115,12 @@
 
 				<Button
 					android:id="@+id/button16"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
-					android:backgroundTint="#A17D1120"
 					android:layout_column="0"
+					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="Drivetrain"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -128,11 +128,11 @@
 
 				<Button
 					android:id="@+id/button17"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
 					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="Bumper"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -170,24 +170,24 @@
 
 				<Button
 					android:id="@+id/button18"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="CodingBat Python"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="CodingBat Python"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button19"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
 					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="Learn Python"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -198,25 +198,25 @@
 
 				<Button
 					android:id="@+id/button20"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="TutorialsPoint"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="TutorialsPoint"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button21"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Codeacademy"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Codeacademy"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
@@ -226,12 +226,12 @@
 
 				<Button
 					android:id="@+id/button22"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
-					android:backgroundTint="#A17D1120"
 					android:layout_column="0"
+					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="Robot basics"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -239,11 +239,11 @@
 
 				<Button
 					android:id="@+id/button23"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
 					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="Electronics"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -268,25 +268,25 @@
 
 				<Button
 					android:id="@+id/button25"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Codeacademy"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Codeacademy"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button26"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:text="CodingBat(Java)"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="CodingBat(Java)"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
@@ -296,24 +296,24 @@
 
 				<Button
 					android:id="@+id/button27"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Pathfinder"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Pathfinder"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button28"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
 					android:backgroundTint="#A17D1120"
 					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
 					android:text="Complex Robot Logic"
 					android:textAlignment="center"
 					android:textColor="#000000"
@@ -337,31 +337,32 @@
 
 				<Button
 					android:id="@+id/button29"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Intro CAD"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Intro CAD"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button30"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Manufacturing"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Manufacturing"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 			</TableRow>
 
 			<TableRow>
+
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_span="2"
@@ -377,31 +378,32 @@
 
 				<Button
 					android:id="@+id/button31"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="What is Grant"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="What is Grant"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button32"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Youtube Playlist"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Youtube Playlist"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 			</TableRow>
 
 			<TableRow>
+
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_span="2"
@@ -417,31 +419,32 @@
 
 				<Button
 					android:id="@+id/button33"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Intro"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Intro"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button34"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Tools and Apps"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Tools and Apps"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 			</TableRow>
 
 			<TableRow>
+
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_span="2"
@@ -457,31 +460,32 @@
 
 				<Button
 					android:id="@+id/button35"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Good pictures"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Good pictures"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button36"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Youtube Playlist"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Youtube Playlist"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 			</TableRow>
 
 			<TableRow>
+
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_span="2"
@@ -497,31 +501,32 @@
 
 				<Button
 					android:id="@+id/button37"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Ins of Outreach"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Ins of Outreach"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button38"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Handbook"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Handbook"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 			</TableRow>
 
 			<TableRow>
+
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_span="2"
@@ -532,35 +537,37 @@
 					android:textSize="30sp"
 					android:textStyle="bold" />
 			</TableRow>
+
 			<TableRow android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button39"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Youtube Playlist"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Youtube Playlist"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button40"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Google slides"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Google slides"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 			</TableRow>
 
 			<TableRow>
+
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_span="2"
@@ -571,29 +578,32 @@
 					android:textSize="30sp"
 					android:textStyle="bold" />
 			</TableRow>
-			<TableRow android:layout_marginTop="20dp" android:layout_marginBottom="30dp">
+
+			<TableRow
+				android:layout_marginTop="20dp"
+				android:layout_marginBottom="30dp">
 
 				<Button
 					android:id="@+id/button41"
-					android:onClick="training"
 					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:layout_column="0"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Youtube Playlist"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Youtube Playlist"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
 
 				<Button
 					android:id="@+id/button42"
-					android:onClick="training"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:text="Projects"
 					android:backgroundTint="#A17D1120"
+					android:fontFamily="@font/roboto_bold"
+					android:onClick="training"
+					android:text="Projects"
 					android:textAlignment="center"
 					android:textColor="#000000"
 					android:textSize="16sp" />
