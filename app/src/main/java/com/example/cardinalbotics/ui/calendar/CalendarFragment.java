@@ -21,12 +21,12 @@ import java.util.ArrayList;
 
 public class CalendarFragment extends Fragment implements OnDateSelectedListener {
 
+	public ArrayList<CalendarDay> eventDay = new ArrayList<>();
 	//    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEE, d MMM yyyy");
 	TextView textView;
 	MaterialCalendarView widget;
-	public ArrayList<CalendarDay> eventDay=new ArrayList<>();
-    ArrayList<String> eventName=new ArrayList<>();
-//	String eventName = "Ayaka's Birthday";
+	ArrayList<String> eventName = new ArrayList<>();
+	//	String eventName = "Ayaka's Birthday";
 //	CalendarDay eventDay = CalendarDay.from(2020, 8, 14);
 	private CalendarViewModel calendarViewModel;
 
@@ -62,8 +62,8 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 
 	@Override
 	public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-		for(int i=0; i<eventName.size(); i++){
-			if(eventDay.get(i).toString().equals(date.toString())) {
+		for (int i = 0; i < eventName.size(); i++) {
+			if (eventDay.get(i).toString().equals(date.toString())) {
 				textView.setText(eventName.get(i));
 				return;
 			} else {

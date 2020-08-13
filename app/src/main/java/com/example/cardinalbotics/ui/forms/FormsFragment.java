@@ -30,6 +30,7 @@ public class FormsFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
 		final TableLayout formList = ((TableLayout) getView().findViewById(R.id.formsList));
 		AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataSheet(new Response.Listener<JSONObject>() {
 			@Override

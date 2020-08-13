@@ -55,7 +55,7 @@
 
 				<Button
 					android:id="@+id/button13"
-					android:layout_width="match_parent"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_column="1"
 					android:backgroundTint="#A17D1120"
@@ -69,7 +69,9 @@
 			</TableRow>
 
 
-			<TableRow android:layout_marginTop="10dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="10dp">
 
 				<TextView
 					android:layout_height="wrap_content"
@@ -83,7 +85,9 @@
 					android:textStyle="bold" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="10dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="10dp">
 
 				<Button
 					android:id="@+id/button14"
@@ -113,7 +117,9 @@
 
 			</TableRow>
 
-			<TableRow android:layout_marginTop="20dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button16"
@@ -142,7 +148,9 @@
 					android:textSize="16sp" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="10dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="10dp">
 
 				<TextView
 					android:layout_height="wrap_content"
@@ -169,7 +177,9 @@
 					android:textStyle="bold" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="10dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="10dp">
 
 				<Button
 					android:id="@+id/button18"
@@ -198,7 +208,9 @@
 					android:textSize="16sp" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="20dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button20"
@@ -227,7 +239,9 @@
 					android:textSize="16sp" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="20dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button22"
@@ -271,7 +285,9 @@
 					android:textStyle="bold" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="10dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="10dp">
 
 				<Button
 					android:id="@+id/button25"
@@ -300,7 +316,9 @@
 					android:textSize="16sp" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="20dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button27"
@@ -343,7 +361,9 @@
 					android:textStyle="bold" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="10dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="10dp">
 
 				<Button
 					android:id="@+id/button29"
@@ -386,7 +406,9 @@
 					android:textStyle="bold" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="20dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button31"
@@ -428,7 +450,9 @@
 					android:textStyle="bold" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="20dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button33"
@@ -471,7 +495,9 @@
 					android:textStyle="bold" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="20dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button35"
@@ -513,7 +539,9 @@
 					android:textStyle="bold" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="20dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button37"
@@ -556,7 +584,9 @@
 					android:textStyle="bold" />
 			</TableRow>
 
-			<TableRow android:layout_marginTop="20dp" android:layout_width="match_parent">
+			<TableRow
+				android:layout_width="match_parent"
+				android:layout_marginTop="20dp">
 
 				<Button
 					android:id="@+id/button39"
@@ -599,9 +629,9 @@
 			</TableRow>
 
 			<TableRow
+				android:layout_width="match_parent"
 				android:layout_marginTop="20dp"
-				android:layout_marginBottom="30dp"
-				android:layout_width="match_parent">
+				android:layout_marginBottom="30dp">
 
 				<Button
 					android:id="@+id/button41"

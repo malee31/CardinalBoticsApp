@@ -186,7 +186,7 @@ public class AppSharedResources {
 			os.close();
 
 			Log.i("STATUS", String.valueOf(conn.getResponseCode()));
-			Log.i("MSG" , conn.getResponseMessage());
+			Log.i("MSG", conn.getResponseMessage());
 		} catch (Exception e) {
 			System.out.println("How did it fail??? POST Time Failed");
 			e.printStackTrace();
