@@ -20,30 +20,30 @@ import org.json.JSONObject;
 
 public class FormsFragment extends Fragment {
 
-    private FormsViewModel formsViewModel;
+	private FormsViewModel formsViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        formsViewModel = new ViewModelProvider(this).get(FormsViewModel.class);
-        return inflater.inflate(R.layout.fragment_forms, container, false);
-    }
+	public View onCreateView(@NonNull LayoutInflater inflater,
+							 ViewGroup container, Bundle savedInstanceState) {
+		formsViewModel = new ViewModelProvider(this).get(FormsViewModel.class);
+		return inflater.inflate(R.layout.fragment_forms, container, false);
+	}
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        final TableLayout formList = ((TableLayout) getView().findViewById(R.id.formsList));
-        AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataSheet(new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray entries = response.getJSONArray("values");
+	@Override
+	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+		final TableLayout formList = ((TableLayout) getView().findViewById(R.id.formsList));
+		AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataSheet(new Response.Listener<JSONObject>() {
+			@Override
+			public void onResponse(JSONObject response) {
+				try {
+					JSONArray entries = response.getJSONArray("values");
 
-                    //Done. Now confirming everything is there
-                    System.out.println(entries.toString());
-                } catch (Exception err) {
-                    System.out.println("Oh no, can't load / process things right now");
-                    err.printStackTrace();
-                }
-            }
-        });
-    }
+					//Done. Now confirming everything is there
+					System.out.println(entries.toString());
+				} catch (Exception err) {
+					System.out.println("Oh no, can't load / process things right now");
+					err.printStackTrace();
+				}
+			}
+		});
+	}
 }

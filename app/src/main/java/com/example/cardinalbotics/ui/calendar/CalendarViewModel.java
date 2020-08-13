@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel;
 
 public class CalendarViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+	private MutableLiveData<String> mText;
 
-    public CalendarViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
-    }
+	public CalendarViewModel() {
+		mText = new MutableLiveData<>();
+		mText.setValue("This is gallery fragment");
+	}
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+	public LiveData<String> getText() {
+		return mText;
+	}
 }
