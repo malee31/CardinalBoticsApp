@@ -19,21 +19,23 @@
 
 		<Button
 			android:id="@+id/button1"
-			android:onClick="link"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:autoLink="web"
+			android:layout_marginBottom="10dp"
 			android:backgroundTint="#A17D1120"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="Team Website" />
 
 
 		<Button
 			android:id="@+id/button2"
 			android:onClick="link"
+			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="Team Google drive" />
@@ -41,29 +43,24 @@
 		<Button
 			android:id="@+id/button3"
 			android:onClick="link"
+			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="roster" />
 
-		<Button
-			android:id="@+id/button4"
-			android:onClick="link"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:autoLink="web"
-			android:backgroundTint="#A17D1120"
-			android:gravity="center_horizontal"
-			android:text="Grant Mastersheet" />
+
 
 		<Button
 			android:id="@+id/button5"
 			android:onClick="link"
+			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="Google calendar" />
@@ -71,9 +68,10 @@
 		<Button
 			android:id="@+id/button6"
 			android:onClick="link"
+			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="Form Mastersheet" />
@@ -81,9 +79,11 @@
 		<Button
 			android:id="@+id/button7"
 			android:onClick="link"
+			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="google photos" />
@@ -91,9 +91,11 @@
 		<Button
 			android:id="@+id/button8"
 			android:onClick="link"
+			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="youtube channel" />
@@ -101,9 +103,11 @@
 		<Button
 			android:id="@+id/button9"
 			android:onClick="link"
+			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="handbooks" />
@@ -111,9 +115,11 @@
 		<Button
 			android:id="@+id/button10"
 			android:onClick="link"
+			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="training document" />
@@ -121,12 +127,26 @@
 		<Button
 			android:id="@+id/button11"
 			android:onClick="link"
+			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
 			android:gravity="center_horizontal"
 			android:text="IRC Game Manual" />
+
+		<Button
+			android:id="@+id/button4"
+			android:onClick="link"
+			android:layout_marginBottom="10dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:autoLink="web"
+			android:fontFamily="@font/roboto_bold"
+			android:backgroundTint="#A17D1120"
+			android:gravity="center_horizontal"
+			android:text="Grant Mastersheet" />
 
 	</LinearLayout>
 
