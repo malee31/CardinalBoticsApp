@@ -169,7 +169,7 @@
 				android:id="@+id/button4"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginBottom="10dp"
+				android:layout_marginBottom="30dp"
 				android:autoLink="web"
 				android:backgroundTint="#A17D1120"
 				android:drawableRight="@drawable/ic_resource_grant"
