@@ -9,13 +9,14 @@
 
 	<LinearLayout
 		android:id="@+id/resourcesList"
-		android:layout_width="366dp"
-		android:layout_height="659dp"
+		android:layout_width="357dp"
+		android:layout_height="716dp"
 		android:orientation="vertical"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent">
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="1.0">
 
 		<Button
 			android:id="@+id/button1"
@@ -23,129 +24,140 @@
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="10dp"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_teamweb"
 			android:fontFamily="@font/roboto_bold"
-			android:gravity="center_horizontal"
+			android:gravity="center_horizontal|center_vertical"
 			android:onClick="link"
-			android:text="Team Website" />
+			android:text="Team Website"
+			android:textSize="18sp" />
 
 
 		<Button
 			android:id="@+id/button2"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:fontFamily="@font/roboto_bold"
+			android:layout_marginBottom="10dp"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_google_drive"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="Team Google drive" />
 
 		<Button
 			android:id="@+id/button3"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:fontFamily="@font/roboto_bold"
+			android:layout_marginBottom="10dp"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_roster"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="roster" />
-
 
 
 		<Button
 			android:id="@+id/button5"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
 			android:autoLink="web"
-			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_menu_calendar"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="Google calendar" />
 
 		<Button
 			android:id="@+id/button6"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:fontFamily="@font/roboto_bold"
+			android:layout_marginBottom="10dp"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_form"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="Form Mastersheet" />
 
 		<Button
 			android:id="@+id/button7"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
 			android:autoLink="web"
-			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_photos"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="google photos" />
 
 		<Button
 			android:id="@+id/button8"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
 			android:autoLink="web"
-			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_youtube"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="youtube channel" />
 
 		<Button
 			android:id="@+id/button9"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
 			android:autoLink="web"
-			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_handbook"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="handbooks" />
 
 		<Button
 			android:id="@+id/button10"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
 			android:autoLink="web"
-			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_traindoc"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="training document" />
 
 		<Button
 			android:id="@+id/button11"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
 			android:autoLink="web"
-			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_ircgamemanual"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="IRC Game Manual" />
 
 		<Button
 			android:id="@+id/button4"
-			android:onClick="link"
-			android:layout_marginBottom="10dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
 			android:autoLink="web"
-			android:fontFamily="@font/roboto_bold"
 			android:backgroundTint="#A17D1120"
+			android:drawableRight="@drawable/ic_resource_grant"
+			android:fontFamily="@font/roboto_bold"
 			android:gravity="center_horizontal"
+			android:onClick="link"
 			android:text="Grant Mastersheet" />
 
 	</LinearLayout>
