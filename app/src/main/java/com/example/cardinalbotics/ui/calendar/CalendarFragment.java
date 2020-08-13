@@ -24,18 +24,22 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 	//    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEE, d MMM yyyy");
 	TextView textView;
 	MaterialCalendarView widget;
-	//    public ArrayList<CalendarDay> eventDay=new ArrayList<>();
-//    ArrayList<String> eventName=new ArrayList<>();
-	String eventName = "Ayaka's Birthday";
-	CalendarDay eventDay = CalendarDay.from(2020, 8, 14);
+	public ArrayList<CalendarDay> eventDay=new ArrayList<>();
+    ArrayList<String> eventName=new ArrayList<>();
+//	String eventName = "Ayaka's Birthday";
+//	CalendarDay eventDay = CalendarDay.from(2020, 8, 14);
 	private CalendarViewModel calendarViewModel;
 
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 ViewGroup container, Bundle savedInstanceState) {
 		calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
+		eventDay.add(CalendarDay.from(2020, 8, 14));
+		eventDay.add(CalendarDay.from(2020, 9, 16));
+		eventDay.add(CalendarDay.from(2020, 8, 18));
+		eventName.add("Akira's Birthday");
+		eventName.add("Everyone's Birthday");
+		eventName.add("YEEP");
 		return inflater.inflate(R.layout.fragment_calendar, container, false);
-//        eventDay.add(CalendarDay.from(2020, 8, 14));
-
 	}
 
 	@Override
@@ -56,10 +60,12 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 
 	@Override
 	public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-		if (eventDay.equals(date)) {
-			textView.setText(eventName);
-		} else {
-			textView.setText("No Event");
+		for(int i=0; i<eventName.size(); i++){
+			if(eventDay.get(i).equals(date)) {
+				textView.setText(eventName.get(i));
+			} else {
+				textView.setText("No Event");
+			}
 		}
 	}
 
