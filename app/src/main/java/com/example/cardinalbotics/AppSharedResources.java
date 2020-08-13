@@ -3,6 +3,7 @@ package com.example.cardinalbotics;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.SystemClock;
+import android.util.Log;
 
 import com.android.volley.Cache;
 import com.android.volley.Network;
@@ -16,6 +17,12 @@ import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 //import org.json.JSONException;
 
@@ -154,6 +161,37 @@ public class AppSharedResources {
 
 	public void sendTime(long duration) {
 		System.out.println("Logged in for " + duration + " Seconds");
+		try {
+			JSONObject data = new JSONObject();
+			data.put("id", storeGet("password"));
+			data.put("duration", duration);
+			data.put("message", "I mean, it sent something... THIS IS A WIP DW");
+			data.put("timeout", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(Calendar.getInstance().getTime()));
+
+			System.out.println("Successfully Created JSON Object: " + data.toString());
+
+			URL url = new URL("https://google.com");
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("POST");
+			conn.setRequestProperty("Content-Type", "application/json");
+//			conn.setRequestProperty("Accept","application/json");
+			conn.setDoOutput(true);
+			conn.setDoInput(true);
+			conn.connect();
+
+			DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+			os.writeBytes(data.toString());
+
+			os.flush();
+			os.close();
+
+			Log.i("STATUS", String.valueOf(conn.getResponseCode()));
+			Log.i("MSG" , conn.getResponseMessage());
+		} catch (Exception e) {
+			System.out.println("How did it fail??? POST Time Failed");
+			e.printStackTrace();
+		}
+
 	}
 
 	public void store(String key, String value) {
