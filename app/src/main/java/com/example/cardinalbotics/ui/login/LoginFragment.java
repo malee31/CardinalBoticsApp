@@ -26,7 +26,6 @@ public class LoginFragment extends Fragment {
 		loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 		System.out.println("PASSWORD SET TO: " + AppSharedResources.getInstance(getActivity().getApplicationContext()).storeGet("password"));
 		return inflater.inflate(R.layout.fragment_login, container, false);
-
 	}
 
 	@Override
@@ -37,13 +36,12 @@ public class LoginFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				EditText pw = (EditText) (getView().findViewById(R.id.password));
-				String passwd = pw.getText().toString();
-				AppSharedResources.getInstance(getActivity().getApplicationContext()).store("password", passwd);
+				String password = pw.getText().toString();
+				AppSharedResources.getInstance(getActivity().getApplicationContext()).store("password", password);
 				System.out.println("PASSWORD SET TO: " + AppSharedResources.getInstance(getActivity().getApplicationContext()).storeGet("password"));
-				((TextView) getActivity().findViewById(R.id.studentId)).setText(passwd);
+				((TextView) getActivity().findViewById(R.id.studentId)).setText(password);
 				((EditText) getActivity().findViewById(R.id.password)).setText("");
 			}
 		});
-
 	}
 }
