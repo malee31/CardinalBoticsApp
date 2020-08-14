@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cardinalbotics.AppSharedResources;
 import com.example.cardinalbotics.R;
+import com.google.android.material.snackbar.Snackbar;
 
 public class LoginFragment extends Fragment {
 
@@ -39,6 +40,7 @@ public class LoginFragment extends Fragment {
 				String password = pw.getText().toString();
 				AppSharedResources.getInstance(getActivity().getApplicationContext()).store("password", password);
 				System.out.println("PASSWORD SET TO: " + AppSharedResources.getInstance(getActivity().getApplicationContext()).storeGet("password"));
+				Snackbar.make(v, "PASSWORD SET TO: " + password, Snackbar.LENGTH_SHORT).show();
 				((TextView) getActivity().findViewById(R.id.studentId)).setText(password);
 				((EditText) getActivity().findViewById(R.id.password)).setText("");
 			}
