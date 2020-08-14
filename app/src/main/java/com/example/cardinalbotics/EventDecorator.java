@@ -11,7 +11,7 @@ import java.util.HashSet;
 public class EventDecorator implements DayViewDecorator {
 
 	private final int color;
-	private final HashSet<CalendarDay> dates;
+	private HashSet<CalendarDay> dates;
 
 	public EventDecorator(int color, Collection<CalendarDay> dates) {
 		this.color = color;
@@ -22,6 +22,8 @@ public class EventDecorator implements DayViewDecorator {
 	public boolean shouldDecorate(CalendarDay day) {
 		return dates.contains(day);
 	}
+
+	public void updateSet(HashSet<CalendarDay> newSet) { dates = newSet; }
 
 	@Override
 	public void decorate(DayViewFacade view) {
