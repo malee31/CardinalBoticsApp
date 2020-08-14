@@ -28,6 +28,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
+import java.util.TimeZone;
 
 public class CalendarFragment extends Fragment implements OnDateSelectedListener {
 
@@ -62,10 +63,11 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 				try {
 					JSONArray loadedEvents = response.getJSONArray("items");
 					Calendar calendar = new GregorianCalendar();
+					calendar.setTimeZone(TimeZone.getTimeZone("GMT"));
 					for (int eventData = 0; eventData < loadedEvents.length(); eventData++) {
 						JSONObject data = loadedEvents.getJSONObject(eventData);
 						//Dates are in 2018-09-14T18:00:00-07:00 format (RFC 3339)
-//						System.out.println("Data: " + data.toString());
+						System.out.println("Data: " + data.toString());
 						String mode = data.getJSONObject("start").has("date") ? "date" : "dateTime";
 						Date dateStart = new Date(DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue());
 						Date dateEnd = new Date(DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
@@ -76,6 +78,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 						eventDay.add(CalendarDay.from(year, month, day));
 						eventName.add(data.getString("summary"));
 						System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
+//						System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
 						calendar.setTime(dateEnd);
 						if (!(year == calendar.get(Calendar.YEAR) && month == calendar.get(Calendar.MONTH) + 1 && day == calendar.get(Calendar.DAY_OF_MONTH))) {
 							eventDay.add(CalendarDay.from(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)));
