@@ -50,7 +50,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 		decor = new EventDecorator(0, eventDay);
 
 		textView = view.findViewById(R.id.calendartext);
-		textView.setText("Loading Events");
+		textView.setText("No Selected Events");
 		widget = view.findViewById(R.id.calendarView);
 		widget.setOnDateChangedListener(this);
 		widget.invalidateDecorators();
@@ -62,7 +62,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 				try {
 					JSONArray loadedEvents = response.getJSONArray("items");
 					Calendar calendar = new GregorianCalendar();
-					for(int eventData = 0; eventData < loadedEvents.length(); eventData++) {
+					for (int eventData = 0; eventData < loadedEvents.length(); eventData++) {
 						JSONObject data = loadedEvents.getJSONObject(eventData);
 						//Dates are in 2018-09-14T18:00:00-07:00 format (RFC 3339)
 						System.out.println("Data: " + data.toString());
@@ -70,32 +70,48 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 						Date dateStart = new Date(DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue());
 						Date dateEnd = new Date(DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
 						calendar.setTime(dateStart);
-						eventDay.add(CalendarDay.from(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)));
+						int year = calendar.get(Calendar.YEAR);
+						int month = calendar.get(Calendar.MONTH) + 1;
+						int day = calendar.get(Calendar.DAY_OF_MONTH);
+						eventDay.add(CalendarDay.from(year, month, day));
 						eventName.add(data.getString("summary"));
-						System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
+						calendar.setTime(dateEnd);
+						if(year==calendar.get(Calendar.YEAR) && month == calendar.get(Calendar.MONTH) + 1 && day == calendar.get(Calendar.DAY_OF_MONTH)){
+							eventDay.add(CalendarDay.from(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)));
+							eventName.add("End of " + data.getString("summary"));
+							System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
+						}
 					}
 					System.out.println("DONE FINDING DATES FROM CALENDAR PAGE");
 					decor.updateSet(new HashSet<CalendarDay>(eventDay));
 					widget.invalidateDecorators();
 					System.out.println("DECORATORS UPDATED");
 					eventsLoaded = true;
-				} catch(Exception e) {
+				} catch (Exception e) {
 					System.out.println("Crap, something went wrong while getting the calendar events");
 					e.printStackTrace();
 				}
-				if(response.has("nextPageToken")) System.out.println("OH GOD THERE'S MORE");
+				if (response.has("nextPageToken")) System.out.println("OH GOD THERE'S MORE");
 			}
 		});
 	}
 
 	@Override
 	public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+		String events = "";
 		for (int eventEntry = 0; eventEntry < Math.min(eventName.size(), eventDay.size()); eventEntry++) {
 			if (eventDay.get(eventEntry).toString().equals(date.toString())) {
-				textView.setText(eventName.get(eventEntry));
-				return;
+				if (events.equals("")) {
+					events = eventName.get(eventEntry);
+				} else {
+					events += " & " + eventName.get(eventEntry);
+				}
 			}
 		}
-		textView.setText(eventsLoaded ? "No Events" : "Loading Events");
+		if (events.equals("")) {
+			textView.setText(eventsLoaded ? "No Events" : "Loading Events");
+		} else {
+			textView.setText(events);
+		}
 	}
 }
