@@ -63,12 +63,13 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 				try {
 					JSONArray loadedEvents = response.getJSONArray("items");
 					Calendar calendar = new GregorianCalendar();
-					calendar.setTimeZone(TimeZone.getTimeZone("GMT"));
 					for (int eventData = 0; eventData < loadedEvents.length(); eventData++) {
 						JSONObject data = loadedEvents.getJSONObject(eventData);
 						//Dates are in 2018-09-14T18:00:00-07:00 format (RFC 3339)
 						System.out.println("Data: " + data.toString());
 						String mode = data.getJSONObject("start").has("date") ? "date" : "dateTime";
+						if(mode.equals("dateTime")) calendar.setTimeZone(TimeZone.getTimeZone("GMT-7"));
+						else calendar.setTimeZone(TimeZone.getTimeZone("GMT"));
 						Date dateStart = new Date(DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue());
 						Date dateEnd = new Date(DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
 						calendar.setTime(dateStart);
