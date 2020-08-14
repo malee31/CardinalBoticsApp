@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.example.cardinalbotics.AppSharedResources;
 import com.example.cardinalbotics.EventDecorator;
 import com.example.cardinalbotics.R;
+import com.google.api.client.util.DateTime;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
@@ -23,6 +24,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 
 public class CalendarFragment extends Fragment implements OnDateSelectedListener {
@@ -43,12 +47,6 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-		eventDay.add(CalendarDay.from(2020, 8, 14));
-		eventDay.add(CalendarDay.from(2020, 9, 16));
-		eventDay.add(CalendarDay.from(2020, 8, 18));
-		eventName.add("Akira's Birthday");
-		eventName.add("Everyone's Birthday");
-		eventName.add("YEEP");
 		decor = new EventDecorator(0, eventDay);
 
 		textView = view.findViewById(R.id.calendartext);
@@ -63,17 +61,23 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 			public void onResponse(JSONObject response) {
 				try {
 					JSONArray loadedEvents = response.getJSONArray("items");
+					Calendar calendar = new GregorianCalendar();
 					for(int eventData = 0; eventData < loadedEvents.length(); eventData++) {
 						JSONObject data = loadedEvents.getJSONObject(eventData);
 						//Dates are in 2018-09-14T18:00:00-07:00 format (RFC 3339)
 						System.out.println("Data: " + data.toString());
 						String mode = data.getJSONObject("start").has("date") ? "date" : "dateTime";
-						String dateStart = data.getJSONObject("start").getString(mode);
-						String dateEnd = data.getJSONObject("end").getString(mode);
+						Date dateStart = new Date(DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue());
+						Date dateEnd = new Date(DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
+						calendar.setTime(dateStart);
+						eventDay.add(CalendarDay.from(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)));
 						eventName.add(data.getString("summary"));
-						System.out.println("Start: " + dateStart + " End: " + dateEnd + " Info: " + data.getString("summary"));
+						System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
 					}
-					System.out.println("DONE FINDING DATES FROM CALENDAR");
+					System.out.println("DONE FINDING DATES FROM CALENDAR PAGE");
+					decor.updateSet(new HashSet<CalendarDay>(eventDay));
+					widget.invalidateDecorators();
+					System.out.println("DECORATORS UPDATED");
 					eventsLoaded = true;
 				} catch(Exception e) {
 					System.out.println("Crap, something went wrong while getting the calendar events");
