@@ -33,7 +33,7 @@ public class FormsFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-		LinearLayout layout = ((LinearLayout) getView().findViewById(R.id.formsList));
+		TableLayout layout = ((TableLayout) getView().findViewById(R.id.formsList));
 		Button btn = new Button(getContext());
 		btn.setText("Test");
 		btn.setBackgroundColor(Color.RED);
