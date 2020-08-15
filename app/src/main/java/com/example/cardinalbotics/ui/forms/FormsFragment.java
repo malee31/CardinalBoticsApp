@@ -65,7 +65,7 @@ public class FormsFragment extends Fragment {
 		});
 	}
 
-	public void appendFormRow(String buttonText, String sideText, final String url) {
+	public void appendFormRow(String buttonText, String sideText, String url) {
 		TableLayout layout = getView().findViewById(R.id.formsList);
 		TableRow newRow = new TableRow(getContext());
 
@@ -83,7 +83,7 @@ public class FormsFragment extends Fragment {
 
 		TextView text = new TextView(getContext());
 		text.setText(sideText);
-		text.setGravity(Gravity.CENTER);
+//		text.setGravity(Gravity.CENTER);
 
 		Space space = new Space(getContext());
 		ViewGroup.LayoutParams spaceLayout = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 25);
@@ -96,5 +96,14 @@ public class FormsFragment extends Fragment {
 
 		layout.addView(newRow);
 		layout.addView(space);
+
+		setMargins(text, 50, 0, 0, 0);
+	}
+	private void setMargins (View view, int left, int top, int right, int bottom) {
+		if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+			ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+			p.setMargins(left, top, right, bottom);
+			view.requestLayout();
+		}
 	}
 }

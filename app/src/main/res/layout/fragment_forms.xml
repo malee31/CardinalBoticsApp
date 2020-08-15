@@ -27,31 +27,6 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent">
 
-			<TableRow>
-				<Button
-					android:id="@+id/button1"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_column="0"
-					android:autoLink="web"
-					android:backgroundTint="#A17D1120"
-					android:gravity="center_horizontal"
-					android:text="Outreach/Volunteering" />
-
-				<TextView
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_column="1"
-					android:layout_marginLeft="30dp"
-					android:gravity="center_horizontal"
-					android:text="June 4th"
-					android:textSize="14sp" />
-			</TableRow>
-
-			<Space
-				android:layout_width="match_parent"
-				android:layout_height="25dp" />
-
 		</TableLayout>
 	</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
