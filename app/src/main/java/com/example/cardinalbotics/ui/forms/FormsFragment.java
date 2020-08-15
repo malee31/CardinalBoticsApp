@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.android.volley.Response;
 import com.example.cardinalbotics.AppSharedResources;
 import com.example.cardinalbotics.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -53,7 +54,7 @@ public class FormsFragment extends Fragment {
 						String dueBy = data.getString(4);
 
 						//Generate the Buttons Here
-						appendFormRow(name, dueBy, "");
+						appendFormRow(name, dueBy, url);
 
 					}
 					//Done. Now confirming everything is there
@@ -79,14 +80,18 @@ public class FormsFragment extends Fragment {
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://" + (String) (view.getTag())));
-				startActivity(browserIntent);
+				try {
+					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse((String) view.getTag()));
+					startActivity(browserIntent);
+				} catch (Exception e) {
+					Snackbar.make(view, "Whoops, bad URL: " + (String) view.getTag(), Snackbar.LENGTH_LONG).show();
+					e.printStackTrace();
+				}
 			}
 		});
 
 		TextView text = new TextView(getContext());
 		text.setText(sideText);
-
 
 		Space space = new Space(getContext());
 		ViewGroup.LayoutParams spaceLayout = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 25);
