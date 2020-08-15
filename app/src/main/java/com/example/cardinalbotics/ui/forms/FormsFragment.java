@@ -2,6 +2,7 @@ package com.example.cardinalbotics.ui.forms;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,11 +64,13 @@ public class FormsFragment extends Fragment {
 	}
 
 	public void appendFormRow(String buttonText, String sideText, String url) {
+		int color = Integer.parseInt("#A17D1120", 16);
 		TableLayout layout = getView().findViewById(R.id.formsList);
 		TableRow newRow = new TableRow(getContext());
 		Button btn = new Button(getContext());
 		TextView text = new TextView(getContext());
 		text.setText(sideText);
+		text.setGravity(Gravity.CENTER);
 		btn.setText(buttonText);
 		btn.setBackgroundColor(Color.RED);
 		newRow.addView(btn);
