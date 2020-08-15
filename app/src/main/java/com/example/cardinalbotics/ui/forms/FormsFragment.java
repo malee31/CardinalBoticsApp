@@ -64,7 +64,7 @@ public class FormsFragment extends Fragment {
 	}
 
 	public void appendFormRow(String buttonText, String sideText, String url) {
-		int color = Integer.parseInt("#A17D1120", 16);
+//		int color = Integer.parseInt("#A17D1120", 16);
 		TableLayout layout = getView().findViewById(R.id.formsList);
 		TableRow newRow = new TableRow(getContext());
 		Button btn = new Button(getContext());
