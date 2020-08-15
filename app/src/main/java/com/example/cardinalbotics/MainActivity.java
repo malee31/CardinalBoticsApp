@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
 			startActivity(browserIntent);
 		} else if (view.getId() == R.id.button14) {
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/document/d/19Vp4Mc0M0EGQ0T_dZnD-DdPzOlWwLieARODYt-xSEbk/edit?usp=sharing"));
 			startActivity(browserIntent);
 		} else if (view.getId() == R.id.button15) {
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
