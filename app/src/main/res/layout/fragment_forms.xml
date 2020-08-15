@@ -29,6 +29,7 @@
 			android:layout_width="231dp"
 			android:layout_gravity="center_horizontal"
 			android:clickable="true">
+
 			<TableRow>
 				<Button
 				android:id="@+id/button1"
@@ -48,6 +49,10 @@
 					android:layout_marginLeft="30dp"
 					android:text="June 4th"
 					android:textSize="14sp" />
+			</TableRow>
+
+			<TableRow android:id="@+id/row1">
+
 			</TableRow>
 
 		</TableLayout>

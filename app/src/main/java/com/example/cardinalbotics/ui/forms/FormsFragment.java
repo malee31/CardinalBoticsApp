@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,11 +35,16 @@ public class FormsFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-		TableLayout layout = ((TableLayout) getView().findViewById(R.id.formsList));
+
+		TableRow layout = ((TableRow) getView().findViewById(R.id.row1));
 		Button btn = new Button(getContext());
+		TextView text= new TextView((getContext()));
+		text.setText("TESTIONG");
 		btn.setText("Test");
 		btn.setBackgroundColor(Color.RED);
+		layout.addView(text);
 		layout.addView(btn);
+
 		final TableLayout formList = ((TableLayout) getView().findViewById(R.id.formsList));
 		AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataSheet(new Response.Listener<JSONObject>() {
 			@Override
