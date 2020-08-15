@@ -40,7 +40,7 @@ public class AppSharedResources {
 	private Network network = new BasicNetwork(new HurlStack());
 	private String
 			sheetURL = "https://sheets.googleapis.com/v4/spreadsheets/1po_TE36FA-I7J2Y-Biw5snWdfSm_Cx055KVi1c43G7Y/values/App%20Assembly!A1:E?key=AIzaSyB2ynMpXWG49Fk-rS0cBZdytUH9GK96NzU",
-			calendarURL = "https://www.googleapis.com/calendar/v3/calendars/nicholas.do%40team4159.org/events?key=AIzaSyDRSH4Trb-AdjEdzA06J7WOFLbyhOqnq-M&ctz=America%2FLos_Angeles&timeMin=2020-08-16T00:00:00Z&orderBy=startTime&singleEvents=True";
+			calendarURL = "https://www.googleapis.com/calendar/v3/calendars/nicholas.do%40team4159.org/events?key=AIzaSyDRSH4Trb-AdjEdzA06J7WOFLbyhOqnq-M&timeZone=GMT-7&timeMin=2020-08-16T00:00:00Z&orderBy=startTime&singleEvents=True";
 
 	private AppSharedResources(Context appCont) {
 		appContext = appCont;

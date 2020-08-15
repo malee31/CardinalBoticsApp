@@ -63,30 +63,48 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 				try {
 					JSONArray loadedEvents = response.getJSONArray("items");
 					Calendar calendar = new GregorianCalendar();
+					calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
 					for (int eventData = 0; eventData < loadedEvents.length(); eventData++) {
+						//Loading each object and extracting the details we need from them
 						JSONObject data = loadedEvents.getJSONObject(eventData);
 						//Dates are in 2018-09-14T18:00:00-07:00 format (RFC 3339)
-						System.out.println("Data: " + data.toString());
+//						System.out.println("Data: " + data.toString());
 						String mode = data.getJSONObject("start").has("date") ? "date" : "dateTime";
-						if(mode.equals("dateTime")) calendar.setTimeZone(TimeZone.getTimeZone("GMT-7"));
-						else calendar.setTimeZone(TimeZone.getTimeZone("GMT"));
+//						if(mode.equals("dateTime")) calendar.setTimeZone(TimeZone.getTimeZone("UTC-07"));
+//						else calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+						//Parsing Date into an Easier to Read Object
 						Date dateStart = new Date(DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue());
 						Date dateEnd = new Date(DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
 						calendar.setTime(dateStart);
+
+						//Setting the day of the event in variables to compare with the end date
 						int year = calendar.get(Calendar.YEAR);
 						int month = calendar.get(Calendar.MONTH) + 1;
 						int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+						//Add start dates to ArrayList
 						eventDay.add(CalendarDay.from(year, month, day));
 						eventName.add(data.getString("summary"));
-						System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
 //						System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
+
+						//TESTING
+						if(data.getString("summary").equals("CardinalBotics Interviews")) {
+							System.out.println("\n\tTARGET LOCKED (JSON): " + data.getString("summary") + "\n\tStart - " + data.getJSONObject("start").getString(mode) + " \n\tEnd - " + data.getJSONObject("end").getString(mode));
+							System.out.println("\n\tFrom Parsed RFC Start: " + DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue() + " \n\tFrom Parsed RFC End: " + DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
+							System.out.println("\n\tFrom Parsed Date Start: " + dateStart.toString() + " \n\tFrom Parsed Date End: " + dateEnd.toString());
+							System.out.println("\n\tFrom Calendar Start: " + year + "-" + month + "-" + day);
+						}
+
+							//Adding end dates to ArrayList if the date isn't on the same day as the start day
 						calendar.setTime(dateEnd);
 						if (!(year == calendar.get(Calendar.YEAR) && month == calendar.get(Calendar.MONTH) + 1 && day == calendar.get(Calendar.DAY_OF_MONTH))) {
 							eventDay.add(CalendarDay.from(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)));
 							eventName.add("End of " + data.getString("summary"));
-							System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
+//							System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
 						}
 					}
+					//Cleaning up and properly setting the little dots onto the calendar
 					System.out.println("DONE FINDING DATES FROM CALENDAR PAGE");
 					decor.updateSet(new HashSet<CalendarDay>(eventDay));
 					widget.invalidateDecorators();
