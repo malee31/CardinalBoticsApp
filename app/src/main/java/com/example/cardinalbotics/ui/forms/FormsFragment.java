@@ -26,6 +26,8 @@ import com.example.cardinalbotics.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class FormsFragment extends Fragment {
 
 	private FormsViewModel formsViewModel;
@@ -39,6 +41,7 @@ public class FormsFragment extends Fragment {
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		final TableLayout formList = ((TableLayout) getView().findViewById(R.id.formsList));
+		final int[] id = {0};
 		AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataSheet(new Response.Listener<JSONObject>() {
 			@Override
 			public void onResponse(JSONObject response) {
@@ -54,6 +57,7 @@ public class FormsFragment extends Fragment {
 
 						//Generate the Buttons Here
 						appendFormRow(name, dueBy, "");
+
 					}
 					//Done. Now confirming everything is there
 					System.out.println(entries.toString());
@@ -66,24 +70,26 @@ public class FormsFragment extends Fragment {
 	}
 
 	public void appendFormRow(String buttonText, String sideText, String url) {
+
 		TableLayout layout = getView().findViewById(R.id.formsList);
 		TableRow newRow = new TableRow(getContext());
 
 		Button btn = new Button(getContext());
 		btn.setText(buttonText);
 		btn.setBackgroundColor(Color.parseColor("#A17D1120"));
+		btn.setTag(url);
 
-//		btn.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View view) {
-//				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-//				startActivity(browserIntent);
-//			}
-//		});
+		btn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://"+(String)(view.getTag())));
+				startActivity(browserIntent);
+			}
+		});
 
 		TextView text = new TextView(getContext());
 		text.setText(sideText);
-//		text.setGravity(Gravity.CENTER);
+
 
 		Space space = new Space(getContext());
 		ViewGroup.LayoutParams spaceLayout = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 25);
