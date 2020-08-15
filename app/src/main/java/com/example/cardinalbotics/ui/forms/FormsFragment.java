@@ -64,18 +64,27 @@ public class FormsFragment extends Fragment {
 	}
 
 	public void appendFormRow(String buttonText, String sideText, String url) {
-		int color = Integer.parseInt("#A17D1120", 16);
 		TableLayout layout = getView().findViewById(R.id.formsList);
 		TableRow newRow = new TableRow(getContext());
+
 		Button btn = new Button(getContext());
+		btn.setText(buttonText);
+		btn.setBackgroundColor(Color.parseColor("#A17D1120"));
+
 		TextView text = new TextView(getContext());
 		text.setText(sideText);
 		text.setGravity(Gravity.CENTER);
-		btn.setText(buttonText);
-		btn.setBackgroundColor(Color.RED);
+
+		Space space = new Space(getContext());
+		ViewGroup.LayoutParams spaceLayout = space.getLayoutParams();
+//		spaceLayout.width = ViewGroup.LayoutParams.MATCH_PARENT;
+//		spaceLayout.height = 25;
+
+//		newRow.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
 		newRow.addView(btn);
 		newRow.addView(text);
+
 		layout.addView(newRow);
-		layout.addView(new Space(getContext()));
+		layout.addView(space);
 	}
 }
