@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Space;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -34,16 +35,6 @@ public class FormsFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-
-		TableRow layout = ((TableRow) getView().findViewById(R.id.row1));
-		Button btn = new Button(getContext());
-		TextView text = new TextView((getContext()));
-		text.setText("TESTIONG");
-		btn.setText("Test");
-		btn.setBackgroundColor(Color.RED);
-		layout.addView(btn);
-		layout.addView(text);
-
 		final TableLayout formList = ((TableLayout) getView().findViewById(R.id.formsList));
 		AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataSheet(new Response.Listener<JSONObject>() {
 			@Override
@@ -59,6 +50,7 @@ public class FormsFragment extends Fragment {
 						String dueBy = data.getString(4);
 
 						//Generate the Buttons Here
+						appendFormRow(name, dueBy, "");
 					}
 					//Done. Now confirming everything is there
 					System.out.println(entries.toString());
@@ -68,6 +60,19 @@ public class FormsFragment extends Fragment {
 				}
 			}
 		});
+	}
 
+	public void appendFormRow(String buttonText, String sideText, String url) {
+		TableLayout layout = getView().findViewById(R.id.formsList);
+		TableRow newRow = new TableRow(getContext());
+		Button btn = new Button(getContext());
+		TextView text = new TextView(getContext());
+		text.setText(sideText);
+		btn.setText(buttonText);
+		btn.setBackgroundColor(Color.RED);
+		newRow.addView(btn);
+		newRow.addView(text);
+		layout.addView(newRow);
+		layout.addView(new Space(getContext()));
 	}
 }
