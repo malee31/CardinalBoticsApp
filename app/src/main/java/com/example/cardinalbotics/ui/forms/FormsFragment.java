@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,9 @@ public class FormsFragment extends Fragment {
 
 							TextView text = new TextView(getContext());
 							text.setText("Permanent Forms");
+							text.setTextSize(30);
+							text.setTextColor(Color.parseColor("#7D1120"));
+							text.setGravity(Gravity.CENTER_HORIZONTAL);
 
 							newRow.addView(text);
 							layout.addView(newRow);
