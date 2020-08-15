@@ -2,7 +2,6 @@ package com.example.cardinalbotics.ui.forms;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -56,7 +55,7 @@ public class FormsFragment extends Fragment {
 						String status = data.getString(3);
 						String dueBy = data.getString(4);
 
-						if(!sectionedOff && type.trim().toLowerCase().equals("always active")) {
+						if (!sectionedOff && type.trim().toLowerCase().equals("always active")) {
 							TableLayout layout = getView().findViewById(R.id.formsList);
 							TableRow newRow = new TableRow(getContext());
 
