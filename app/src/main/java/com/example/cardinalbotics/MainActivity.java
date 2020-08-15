@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 		} else if (view.getId() == R.id.button23) {
 			url = "http://www.citruscircuits.org/uploads/6/9/3/4/6934550/robot_wiring.pdf";
 		} else if (view.getId() == R.id.button24) {
-			url = "";
+			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
 		} else if (view.getId() == R.id.button25) {
 			url = "https://www.codecademy.com/learn/learn-java";
 		} else if (view.getId() == R.id.button26) {
