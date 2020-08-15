@@ -51,7 +51,16 @@ public class FormsFragment extends Fragment {
 			public void onResponse(JSONObject response) {
 				try {
 					JSONArray entries = response.getJSONArray("values");
+					for(int entry = 0; entry < entries.length(); entry++) {
+						JSONArray data = entries.getJSONArray(entry);
+						String type = data.getString(0);
+						String name = data.getString(1);
+						String url = data.getString(2);
+						String status = data.getString(3);
+						String dueBy = data.getString(4);
 
+						//Generate the Buttons Here
+					}
 					//Done. Now confirming everything is there
 					System.out.println(entries.toString());
 				} catch (Exception err) {
