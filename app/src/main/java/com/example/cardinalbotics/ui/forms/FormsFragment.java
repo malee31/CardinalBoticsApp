@@ -45,6 +45,7 @@ public class FormsFragment extends Fragment {
 			public void onResponse(JSONObject response) {
 				try {
 					JSONArray entries = response.getJSONArray("values");
+					boolean sectionedOff = false;
 					for (int entry = 0; entry < entries.length(); entry++) {
 						JSONArray data = entries.getJSONArray(entry);
 						String type = data.getString(0);
@@ -53,9 +54,21 @@ public class FormsFragment extends Fragment {
 						String status = data.getString(3);
 						String dueBy = data.getString(4);
 
+						if(!sectionedOff && type.trim().toLowerCase().equals("always active")) {
+							TableLayout layout = getView().findViewById(R.id.formsList);
+							TableRow newRow = new TableRow(getContext());
+
+							TextView text = new TextView(getContext());
+							text.setText("Permanent Forms");
+
+							newRow.addView(text);
+							layout.addView(newRow);
+							System.out.println("SECTIONING OFF HERE");
+							sectionedOff = true;
+						}
+
 						//Generate the Buttons Here
 						appendFormRow(name, dueBy, url);
-
 					}
 					//Done. Now confirming everything is there
 					System.out.println(entries.toString());
@@ -68,7 +81,6 @@ public class FormsFragment extends Fragment {
 	}
 
 	public void appendFormRow(String buttonText, String sideText, String url) {
-
 		TableLayout layout = getView().findViewById(R.id.formsList);
 		TableRow newRow = new TableRow(getContext());
 
