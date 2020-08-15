@@ -1,6 +1,8 @@
 package com.example.cardinalbotics.ui.forms;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -63,7 +65,7 @@ public class FormsFragment extends Fragment {
 		});
 	}
 
-	public void appendFormRow(String buttonText, String sideText, String url) {
+	public void appendFormRow(String buttonText, String sideText, final String url) {
 		TableLayout layout = getView().findViewById(R.id.formsList);
 		TableRow newRow = new TableRow(getContext());
 
@@ -71,16 +73,24 @@ public class FormsFragment extends Fragment {
 		btn.setText(buttonText);
 		btn.setBackgroundColor(Color.parseColor("#A17D1120"));
 
+//		btn.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View view) {
+//				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//				startActivity(browserIntent);
+//			}
+//		});
+
 		TextView text = new TextView(getContext());
 		text.setText(sideText);
 		text.setGravity(Gravity.CENTER);
 
 		Space space = new Space(getContext());
-		ViewGroup.LayoutParams spaceLayout = space.getLayoutParams();
-//		spaceLayout.width = ViewGroup.LayoutParams.MATCH_PARENT;
-//		spaceLayout.height = 25;
+		ViewGroup.LayoutParams spaceLayout = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 25);
+		space.setLayoutParams(spaceLayout);
 
-//		newRow.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+		ViewGroup.LayoutParams rowLayout = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+		newRow.setLayoutParams(rowLayout);
 		newRow.addView(btn);
 		newRow.addView(text);
 
