@@ -36,8 +36,8 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 	MaterialCalendarView widget;
 	ArrayList<String> eventName = new ArrayList<>();
 	boolean eventsLoaded = false;
-	private CalendarViewModel calendarViewModel;
 	EventDecorator decor;
+	private CalendarViewModel calendarViewModel;
 
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 ViewGroup container, Bundle savedInstanceState) {
@@ -72,7 +72,8 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 						String mode = data.getJSONObject("start").has("date") ? "date" : "dateTime";
 
 						//Swap back and forth because of inconsistent formats
-						if(mode.equals("dateTime")) calendar.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
+						if (mode.equals("dateTime"))
+							calendar.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
 						else calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
 
 						//Parsing Date into an Easier to Read Object
@@ -98,7 +99,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 //							System.out.println("\n\tFrom Calendar Start: " + year + "-" + month + "-" + day + " Hour: " + hour);
 //						}
 
-							//Adding end dates to ArrayList if the date isn't on the same day as the start day
+						//Adding end dates to ArrayList if the date isn't on the same day as the start day
 						calendar.setTime(dateEnd);
 						if (!(year == calendar.get(Calendar.YEAR) && month == calendar.get(Calendar.MONTH) + 1 && day == calendar.get(Calendar.DAY_OF_MONTH))) {
 							eventDay.add(CalendarDay.from(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)));

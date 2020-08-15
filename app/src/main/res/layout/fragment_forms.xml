@@ -14,55 +14,57 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
 		app:layout_constraintVertical_bias="0.0">
-	<TableLayout
-		android:id="@+id/formsList"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_margin="20dp"
-		android:scrollbarThumbHorizontal="@android:drawable/btn_default"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent">
 
 		<TableLayout
-			android:layout_width="231dp"
-			android:layout_gravity="center_horizontal"
-			android:clickable="true">
+			android:id="@+id/formsList"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="20dp"
+			android:scrollbarThumbHorizontal="@android:drawable/btn_default"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
 
-			<TableRow>
-				<Button
-				android:id="@+id/button1"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:autoLink="web"
-				android:layout_column="0"
-				android:backgroundTint="#A17D1120"
-				android:gravity="center_horizontal"
-				android:text="Outreach/Volunteering" />
+			<TableLayout
+				android:layout_width="231dp"
+				android:layout_gravity="center_horizontal"
+				android:clickable="true">
 
-				<TextView
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_column="1"
-					android:gravity="center_horizontal"
-					android:layout_marginLeft="30dp"
-					android:text="June 4th"
-					android:textSize="14sp" />
-			</TableRow>
+				<TableRow>
 
-			<TableRow android:id="@+id/row1">
+					<Button
+						android:id="@+id/button1"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_column="0"
+						android:autoLink="web"
+						android:backgroundTint="#A17D1120"
+						android:gravity="center_horizontal"
+						android:text="Outreach/Volunteering" />
 
-			</TableRow>
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_column="1"
+						android:layout_marginLeft="30dp"
+						android:gravity="center_horizontal"
+						android:text="June 4th"
+						android:textSize="14sp" />
+				</TableRow>
+
+				<TableRow android:id="@+id/row1">
+
+				</TableRow>
+
+			</TableLayout>
+
+			<Space
+				android:layout_width="match_parent"
+				android:layout_height="25dp" />
+
 
 		</TableLayout>
-
-		<Space
-			android:layout_width="match_parent"
-			android:layout_height="25dp" />
-
-
-	</TableLayout>
 	</ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

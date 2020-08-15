@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -38,12 +37,12 @@ public class FormsFragment extends Fragment {
 
 		TableRow layout = ((TableRow) getView().findViewById(R.id.row1));
 		Button btn = new Button(getContext());
-		TextView text= new TextView((getContext()));
+		TextView text = new TextView((getContext()));
 		text.setText("TESTIONG");
 		btn.setText("Test");
 		btn.setBackgroundColor(Color.RED);
-		layout.addView(text);
 		layout.addView(btn);
+		layout.addView(text);
 
 		final TableLayout formList = ((TableLayout) getView().findViewById(R.id.formsList));
 		AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataSheet(new Response.Listener<JSONObject>() {
@@ -51,7 +50,7 @@ public class FormsFragment extends Fragment {
 			public void onResponse(JSONObject response) {
 				try {
 					JSONArray entries = response.getJSONArray("values");
-					for(int entry = 0; entry < entries.length(); entry++) {
+					for (int entry = 0; entry < entries.length(); entry++) {
 						JSONArray data = entries.getJSONArray(entry);
 						String type = data.getString(0);
 						String name = data.getString(1);

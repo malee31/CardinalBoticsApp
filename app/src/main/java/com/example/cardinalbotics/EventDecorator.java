@@ -23,7 +23,9 @@ public class EventDecorator implements DayViewDecorator {
 		return dates.contains(day);
 	}
 
-	public void updateSet(HashSet<CalendarDay> newSet) { dates = newSet; }
+	public void updateSet(HashSet<CalendarDay> newSet) {
+		dates = newSet;
+	}
 
 	@Override
 	public void decorate(DayViewFacade view) {
