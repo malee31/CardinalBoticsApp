@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +21,10 @@ import androidx.lifecycle.ViewModelProvider;
 import com.android.volley.Response;
 import com.example.cardinalbotics.AppSharedResources;
 import com.example.cardinalbotics.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 public class FormsFragment extends Fragment {
 
@@ -56,7 +54,7 @@ public class FormsFragment extends Fragment {
 						String dueBy = data.getString(4);
 
 						//Generate the Buttons Here
-						appendFormRow(name, dueBy, "");
+						appendFormRow(name, dueBy, url);
 
 					}
 					//Done. Now confirming everything is there
@@ -82,14 +80,18 @@ public class FormsFragment extends Fragment {
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://"+(String)(view.getTag())));
-				startActivity(browserIntent);
+				try {
+					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse((String) view.getTag()));
+					startActivity(browserIntent);
+				} catch (Exception e) {
+					Snackbar.make(view, "Whoops, bad URL: " + (String) view.getTag(), Snackbar.LENGTH_LONG).show();
+					e.printStackTrace();
+				}
 			}
 		});
 
 		TextView text = new TextView(getContext());
 		text.setText(sideText);
-
 
 		Space space = new Space(getContext());
 		ViewGroup.LayoutParams spaceLayout = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 25);
@@ -105,7 +107,8 @@ public class FormsFragment extends Fragment {
 
 		setMargins(text, 50, 0, 0, 0);
 	}
-	private void setMargins (View view, int left, int top, int right, int bottom) {
+
+	private void setMargins(View view, int left, int top, int right, int bottom) {
 		if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
 			ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
 			p.setMargins(left, top, right, bottom);
