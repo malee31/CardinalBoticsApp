@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 		} else if (view.getId() == R.id.button4) {
 			url = "https://docs.google.com/spreadsheets/d/10tFI-9L5lEg6GgEVudibQn9Qtt8VgiWgW3QRCUARfD8/edit";
 		} else if (view.getId() == R.id.button5) {
-			url = "https://calendar.google.com/calendar/embed?src=nicholas.do%40team4159.org&ctz=America%2FLos_Angeles";
+			url = "https://calendar.google.com/calendar/b/1?cid=bmljaG9sYXMuZG9AdGVhbTQxNTkub3Jn";
 		} else if (view.getId() == R.id.button6) {
 			url = "https://docs.google.com/spreadsheets/d/1po_TE36FA-I7J2Y-Biw5snWdfSm_Cx055KVi1c43G7Y/edit?usp=sharing";
 		} else if (view.getId() == R.id.button7) {
@@ -110,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
 			url = "https://drive.google.com/drive/folders/1rBSu0S9LPT8yfo2YVwzZgNt_JxE4767O?usp=sharing";
 		} else if (view.getId() == R.id.button10) {
 			url = "https://docs.google.com/document/d/135V9yQGAYNLl9aOCvyKJVLOLIh2yPcCEuZ69nNrumYY/edit?usp=sharing";
-		} else {
+		} else if (view.getId() == R.id.button43) {
+			url = "https://docs.google.com/spreadsheets/d/1bxlkCrDhWk6DDmh_V5-hIsZIRDvSyAaHU_zUzfyM9Ys/edit?usp=sharing";
+		}else {
 			url = "https://docs.google.com/document/d/17RjyV-YCr4_zKslnDachYI_9EAM11asWkexZfDYN4CM/edit?usp=sharing";
 		}
 		Intent browserIntent = new Intent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));

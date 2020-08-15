@@ -123,7 +123,7 @@ public class FormsFragment extends Fragment {
 		layout.addView(newRow);
 		layout.addView(space);
 
-		setMargins(text, 50, 0, 0, 0);
+		setMargins(text, 40, 0, 0, 0);
 	}
 
 	private void setMargins(View view, int left, int top, int right, int bottom) {
