@@ -109,11 +109,11 @@ public class MainActivity extends AppCompatActivity {
 		} else if (view.getId() == R.id.button9) {
 			url = "https://drive.google.com/drive/folders/1rBSu0S9LPT8yfo2YVwzZgNt_JxE4767O?usp=sharing";
 		} else if (view.getId() == R.id.button10) {
-			url = "https://docs.google.com/document/d/135V9yQGAYNLl9aOCvyKJVLOLIh2yPcCEuZ69nNrumYY/edit?usp=sharing"));
+			url = "https://docs.google.com/document/d/135V9yQGAYNLl9aOCvyKJVLOLIh2yPcCEuZ69nNrumYY/edit?usp=sharing";
 		} else {
 			url = "https://docs.google.com/document/d/17RjyV-YCr4_zKslnDachYI_9EAM11asWkexZfDYN4CM/edit?usp=sharing";
 		}
-		Intent browserIntent = new Intent(new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+		Intent browserIntent = new Intent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
 		startActivity(browserIntent);
 	}
 
@@ -122,11 +122,11 @@ public class MainActivity extends AppCompatActivity {
 		if (view.getId() == R.id.button12) {
 			url = "https://docs.google.com/presentation/d/1-3JSEriTv5PFjdkyCE34i-5jmUD_zAhhj0TTWjjj3x4/edit?usp=sharing";
 		} else if (view.getId() == R.id.button13) {
-			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
 		} else if (view.getId() == R.id.button14) {
-			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
+			url = "https://docs.google.com/document/d/19Vp4Mc0M0EGQ0T_dZnD-DdPzOlWwLieARODYt-xSEbk/edit";
 		} else if (view.getId() == R.id.button15) {
-			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
+			url = "https://docs.google.com/presentation/d/16gn59qkjmUjYd--Mud4NDHDZpljU24xEVJ0jfXFNIyw/edit?usp=sharing";
 		} else if (view.getId() == R.id.button16) {
 			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
 		} else if (view.getId() == R.id.button17) {
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 		} else if (view.getId() == R.id.button40) {
 			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
 		} else if (view.getId() == R.id.button41) {
-			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ"));
+			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
 		} else {
 			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
 		}
