@@ -26,6 +26,20 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent">
 
+			<TableRow>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_marginRight="20dp"
+					android:layout_span="2"
+					android:fontFamily="sans-serif"
+					android:gravity="center_horizontal"
+					android:text="Active Forms"
+					android:textColor="@color/colorPrimary"
+					android:textSize="30sp"
+					android:textStyle="bold" />
+			</TableRow>
+
 		</TableLayout>
 	</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
