@@ -84,7 +84,6 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 						int year = calendar.get(Calendar.YEAR);
 						int month = calendar.get(Calendar.MONTH) + 1;
 						int day = calendar.get(Calendar.DAY_OF_MONTH);
-						int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
 						//Add start dates to ArrayList
 						eventDay.add(CalendarDay.from(year, month, day));
@@ -92,12 +91,12 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 //						System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
 
 						//TESTING
-						if(data.getString("summary").equals("Friday Meeting") || data.getString("summary").equals("CardinalBotics Interviews")) {
-							System.out.println("\n\tTARGET LOCKED (JSON): " + data.getString("summary") + "\n\tStart - " + data.getJSONObject("start").getString(mode) + " \n\tEnd - " + data.getJSONObject("end").getString(mode));
-							System.out.println("\n\tFrom Parsed RFC Start: " + DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue() + " \n\tFrom Parsed RFC End: " + DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
-							System.out.println("\n\tFrom Parsed Date Start: " + dateStart.toString() + " \n\tFrom Parsed Date End: " + dateEnd.toString());
-							System.out.println("\n\tFrom Calendar Start: " + year + "-" + month + "-" + day + " Hour: " + hour);
-						}
+//						if(data.getString("summary").equals("Friday Meeting")) {
+//							System.out.println("\n\tTARGET LOCKED (JSON): " + data.getString("summary") + "\n\tStart - " + data.getJSONObject("start").getString(mode) + " \n\tEnd - " + data.getJSONObject("end").getString(mode));
+//							System.out.println("\n\tFrom Parsed RFC Start: " + DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue() + " \n\tFrom Parsed RFC End: " + DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
+//							System.out.println("\n\tFrom Parsed Date Start: " + dateStart.toString() + " \n\tFrom Parsed Date End: " + dateEnd.toString());
+//							System.out.println("\n\tFrom Calendar Start: " + year + "-" + month + "-" + day + " Hour: " + hour);
+//						}
 
 							//Adding end dates to ArrayList if the date isn't on the same day as the start day
 						calendar.setTime(dateEnd);
