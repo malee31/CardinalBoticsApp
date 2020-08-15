@@ -63,7 +63,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 				try {
 					JSONArray loadedEvents = response.getJSONArray("items");
 					Calendar calendar = new GregorianCalendar();
-					calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
+					calendar.setTimeZone(TimeZone.getTimeZone("UTC-7"));
 					for (int eventData = 0; eventData < loadedEvents.length(); eventData++) {
 						//Loading each object and extracting the details we need from them
 						JSONObject data = loadedEvents.getJSONObject(eventData);
@@ -74,8 +74,8 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 //						else calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
 
 						//Parsing Date into an Easier to Read Object
-						Date dateStart = new Date(DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue());
-						Date dateEnd = new Date(DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
+						Date dateStart = new Date(DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue() + 1);
+						Date dateEnd = new Date(DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue() - 1);
 						calendar.setTime(dateStart);
 
 						//Setting the day of the event in variables to compare with the end date
@@ -89,7 +89,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 //						System.out.println("Start: " + dateStart.toString() + " End: " + dateEnd.toString() + " Info: " + data.getString("summary"));
 
 						//TESTING
-						if(data.getString("summary").equals("CardinalBotics Interviews")) {
+						if(data.getString("summary").equals("Friday Meeting") || data.getString("summary").equals("CardinalBotics Interviews")) {
 							System.out.println("\n\tTARGET LOCKED (JSON): " + data.getString("summary") + "\n\tStart - " + data.getJSONObject("start").getString(mode) + " \n\tEnd - " + data.getJSONObject("end").getString(mode));
 							System.out.println("\n\tFrom Parsed RFC Start: " + DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue() + " \n\tFrom Parsed RFC End: " + DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
 							System.out.println("\n\tFrom Parsed Date Start: " + dateStart.toString() + " \n\tFrom Parsed Date End: " + dateEnd.toString());
