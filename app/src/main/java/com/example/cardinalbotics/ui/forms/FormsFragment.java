@@ -1,10 +1,12 @@
 package com.example.cardinalbotics.ui.forms;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 
 import androidx.annotation.NonNull;
@@ -31,7 +33,11 @@ public class FormsFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-
+		LinearLayout layout = ((LinearLayout) getView().findViewById(R.id.formsList));
+		Button btn = new Button(getContext());
+		btn.setText("Test");
+		btn.setBackgroundColor(Color.RED);
+		layout.addView(btn);
 		final TableLayout formList = ((TableLayout) getView().findViewById(R.id.formsList));
 		AppSharedResources.getInstance(getActivity().getApplicationContext()).requestDataSheet(new Response.Listener<JSONObject>() {
 			@Override

@@ -6,120 +6,58 @@
 	android:layout_height="match_parent"
 	tools:context=".ui.forms.FormsFragment">
 
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.0">
 	<TableLayout
 		android:id="@+id/formsList"
-		android:layout_width="285dp"
-		android:layout_height="552dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="20dp"
 		android:scrollbarThumbHorizontal="@android:drawable/btn_default"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent">
 
-		<TableRow
+		<TableLayout
 			android:layout_width="231dp"
 			android:layout_gravity="center_horizontal"
 			android:clickable="true">
-
-			<Button
+			<TableRow>
+				<Button
 				android:id="@+id/button1"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:autoLink="web"
+				android:layout_column="0"
 				android:backgroundTint="#A17D1120"
 				android:gravity="center_horizontal"
 				android:text="Outreach/Volunteering" />
 
-			<TextView
-				android:layout_width="66dp"
-				android:layout_column="1"
-				android:gravity="center_horizontal"
-				android:padding="3dip"
-				android:text="June 4th"
-				android:textSize="14sp" />
-		</TableRow>
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+					android:gravity="center_horizontal"
+					android:layout_marginLeft="30dp"
+					android:text="June 4th"
+					android:textSize="14sp" />
+			</TableRow>
+
+		</TableLayout>
 
 		<Space
 			android:layout_width="match_parent"
 			android:layout_height="25dp" />
 
-		<TableRow
-			android:layout_width="231dp"
-			android:layout_gravity="center_horizontal"
-			android:clickable="true">
-
-			<Button
-				android:id="@+id/button2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:autoLink="all"
-				android:backgroundTint="#A17D1120"
-				android:gravity="center_horizontal"
-				android:text="@string/outreach" />
-
-			<TextView
-				android:layout_width="66dp"
-				android:layout_column="1"
-				android:gravity="center_horizontal"
-				android:padding="3dip"
-				android:text="June 4th"
-				android:textSize="14sp" />
-		</TableRow>
-
-		<Space
-			android:layout_width="match_parent"
-			android:layout_height="25dp" />
-
-		<TableRow
-			android:layout_width="231dp"
-			android:layout_gravity="center_horizontal"
-			android:clickable="true">
-
-			<Button
-				android:id="@+id/button3"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:autoLink="web"
-				android:backgroundTint="#A17D1120"
-				android:gravity="center_horizontal"
-				android:text="Outreach/Volunteering" />
-
-			<TextView
-				android:layout_width="66dp"
-				android:layout_column="1"
-				android:gravity="center_horizontal"
-				android:padding="3dip"
-				android:text="June 4th"
-				android:textSize="14sp" />
-		</TableRow>
-
-		<Space
-			android:layout_width="match_parent"
-			android:layout_height="25dp" />
-
-		<TableRow
-			android:layout_width="231dp"
-			android:layout_gravity="center_horizontal"
-			android:clickable="true">
-
-			<Button
-				android:id="@+id/button4"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:autoLink="web"
-				android:backgroundTint="#A17D1120"
-				android:gravity="center_horizontal"
-				android:text="Outreach/Volunteering" />
-
-			<TextView
-				android:layout_width="66dp"
-				android:layout_column="1"
-				android:gravity="center_horizontal"
-				android:padding="3dip"
-				android:text="June 4th"
-				android:textSize="14sp" />
-		</TableRow>
 
 	</TableLayout>
+	</ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
