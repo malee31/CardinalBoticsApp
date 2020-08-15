@@ -31,7 +31,6 @@ import java.util.HashSet;
 import java.util.TimeZone;
 
 public class CalendarFragment extends Fragment implements OnDateSelectedListener {
-
 	public ArrayList<CalendarDay> eventDay = new ArrayList<>();
 	TextView textView;
 	MaterialCalendarView widget;
@@ -63,15 +62,18 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 				try {
 					JSONArray loadedEvents = response.getJSONArray("items");
 					Calendar calendar = new GregorianCalendar();
-					calendar.setTimeZone(TimeZone.getTimeZone("UTC-7"));
+					calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
+					calendar.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
 					for (int eventData = 0; eventData < loadedEvents.length(); eventData++) {
 						//Loading each object and extracting the details we need from them
 						JSONObject data = loadedEvents.getJSONObject(eventData);
 						//Dates are in 2018-09-14T18:00:00-07:00 format (RFC 3339)
 //						System.out.println("Data: " + data.toString());
 						String mode = data.getJSONObject("start").has("date") ? "date" : "dateTime";
-//						if(mode.equals("dateTime")) calendar.setTimeZone(TimeZone.getTimeZone("UTC-07"));
-//						else calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+						//Swap back and forth because of inconsistent formats
+						if(mode.equals("dateTime")) calendar.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
+						else calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
 
 						//Parsing Date into an Easier to Read Object
 						Date dateStart = new Date(DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue() + 1);
@@ -82,6 +84,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 						int year = calendar.get(Calendar.YEAR);
 						int month = calendar.get(Calendar.MONTH) + 1;
 						int day = calendar.get(Calendar.DAY_OF_MONTH);
+						int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
 						//Add start dates to ArrayList
 						eventDay.add(CalendarDay.from(year, month, day));
@@ -93,7 +96,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 							System.out.println("\n\tTARGET LOCKED (JSON): " + data.getString("summary") + "\n\tStart - " + data.getJSONObject("start").getString(mode) + " \n\tEnd - " + data.getJSONObject("end").getString(mode));
 							System.out.println("\n\tFrom Parsed RFC Start: " + DateTime.parseRfc3339(data.getJSONObject("start").getString(mode)).getValue() + " \n\tFrom Parsed RFC End: " + DateTime.parseRfc3339(data.getJSONObject("end").getString(mode)).getValue());
 							System.out.println("\n\tFrom Parsed Date Start: " + dateStart.toString() + " \n\tFrom Parsed Date End: " + dateEnd.toString());
-							System.out.println("\n\tFrom Calendar Start: " + year + "-" + month + "-" + day);
+							System.out.println("\n\tFrom Calendar Start: " + year + "-" + month + "-" + day + " Hour: " + hour);
 						}
 
 							//Adding end dates to ArrayList if the date isn't on the same day as the start day
