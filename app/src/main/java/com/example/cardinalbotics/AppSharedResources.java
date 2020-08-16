@@ -40,7 +40,9 @@ public class AppSharedResources {
 	private Network network = new BasicNetwork(new HurlStack());
 	private String
 			sheetURL = "https://sheets.googleapis.com/v4/spreadsheets/1po_TE36FA-I7J2Y-Biw5snWdfSm_Cx055KVi1c43G7Y/values/App%20Assembly!A1:E?key=AIzaSyB2ynMpXWG49Fk-rS0cBZdytUH9GK96NzU",
-			calendarURL = "https://www.googleapis.com/calendar/v3/calendars/nicholas.do%40team4159.org/events?key=AIzaSyDRSH4Trb-AdjEdzA06J7WOFLbyhOqnq-M&timeZone=UTC&timeMin=2020-08-16T00:00:00Z&orderBy=startTime&singleEvents=True";
+			calendarURL = "https://www.googleapis.com/calendar/v3/calendars/nicholas.do%40team4159.org/events?key=AIzaSyDRSH4Trb-AdjEdzA06J7WOFLbyhOqnq-M&timeZone=UTC&timeMin=2020-08-16T00:00:00Z&orderBy=startTime&singleEvents=True",
+			trainingURL="https://sheets.googleapis.com/v4/spreadsheets/1fQyQXJPiFwXKT7wJ8wmJgTolLwxxiOe2PE3xpNQR9Wc/values/Training%20Links!A2:C?key=AIzaSyB2ynMpXWG49Fk-rS0cBZdytUH9GK96NzU",
+			resourceURL="https://sheets.googleapis.com/v4/spreadsheets/1fQyQXJPiFwXKT7wJ8wmJgTolLwxxiOe2PE3xpNQR9Wc/values/Resources!A2:C?key=AIzaSyB2ynMpXWG49Fk-rS0cBZdytUH9GK96NzU";
 
 	private AppSharedResources(Context appCont) {
 		appContext = appCont;
@@ -123,6 +125,13 @@ public class AppSharedResources {
 	public void requestDataSheet(Response.Listener<JSONObject> onFinish) {
 		requestData(sheetURL, onFinish);
 	}
+	public void requestDataTraining(Response.Listener<JSONObject> onFinish) {
+		requestData(trainingURL, onFinish);
+	}
+	public void requestDataResource(Response.Listener<JSONObject> onFinish) {
+		requestData(resourceURL, onFinish);
+	}
+
 
 	// Should get a JSON input of all the relevant events to add as a String
 	private void requestData(String useURL, Response.Listener<JSONObject> onFinish) {
