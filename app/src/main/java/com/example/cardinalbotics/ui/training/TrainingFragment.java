@@ -4,19 +4,19 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.Space;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -27,7 +27,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class TrainingFragment extends Fragment {
 
@@ -55,9 +54,11 @@ public class TrainingFragment extends Fragment {
 						String type = data.getString(0);
 						String name = data.getString(1);
 						String url = data.getString(2);
+						TextView header = null;
+						Button btn2 = null;
 
 						if (!type.equals("") && !type.trim().toLowerCase().equals(currentSection)) {
-							TextView header = makeHeader(type);
+							header = makeHeader(type);
 							table.addView(header);
 							currentSection = type.trim().toLowerCase();
 						}
@@ -65,16 +66,21 @@ public class TrainingFragment extends Fragment {
 						Button btn = makeButton(name, url);
 
 						TableRow newRow = new TableRow(getContext());
-						TableLayout.MarginLayoutParams rowParams = new TableLayout.MarginLayoutParams(TableLayout.MarginLayoutParams.MATCH_PARENT, TableLayout.MarginLayoutParams.WRAP_CONTENT);
-						rowParams.topMargin = 10;
-						newRow.setLayoutParams(rowParams);
+//						TableLayout.MarginLayoutParams rowParams = new TableLayout.MarginLayoutParams(TableLayout.MarginLayoutParams.MATCH_PARENT, TableLayout.MarginLayoutParams.WRAP_CONTENT);
+//						newRow.setLayoutParams(rowParams);
 
 						newRow.addView(btn);
-//						if(entry + 1 < entries.length() && entries.getJSONArray(entry + 1).getString(0).trim().toLowerCase().equals(currentSection)) {
-//							newRow.addView(makeButton(entries.getJSONArray(entry + 1).getString(1).trim(), entries.getJSONArray(entry + 1).getString(2).trim()));
-//							entry++;
-//						}
+						if(entry + 1 < entries.length() && entries.getJSONArray(entry + 1).getString(0).trim().toLowerCase().equals("")) {
+							entry++;
+							btn2 = makeButton(entries.getJSONArray(entry).getString(1).trim(), entries.getJSONArray(entry).getString(2).trim());
+							newRow.addView(btn2);
+						}
 						table.addView(newRow);
+
+						if(null != header) setMargins(header, 0, dip(20f), 0, 0);
+						setMargins(btn, dip(5f), 0, dip(5f), 0);
+						if(null != btn2) setMargins(btn2, 0, 0, 0, dip(20f));
+//						setMargins(newRow, 0, 0, 0, 0);
 					}
 					//Done. Now confirming everything is there
 					System.out.println(entries.toString());
@@ -90,7 +96,9 @@ public class TrainingFragment extends Fragment {
 		Button btn = new Button(getContext());
 		btn.setText(name);
 		btn.setBackgroundColor(Color.parseColor("#A17D1120"));
+		btn.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
 		btn.setTextColor(Color.parseColor("#000000"));
+		btn.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 		btn.setTag(url);
 
 		btn.setOnClickListener(new View.OnClickListener() {
@@ -113,13 +121,28 @@ public class TrainingFragment extends Fragment {
 		TextView header = new TextView(getContext());
 		header.setText(headerText.trim());
 		header.setTextColor(getResources().getColor(R.color.colorPrimary));
-		header.setTextSize(30);
+		header.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
+		header.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
 		header.setGravity(Gravity.CENTER_HORIZONTAL);
 
 		TableRow.MarginLayoutParams headerLayout = new TableRow.MarginLayoutParams(TableRow.MarginLayoutParams.MATCH_PARENT, TableRow.MarginLayoutParams.WRAP_CONTENT);
-		headerLayout.bottomMargin = 20;
 		header.setLayoutParams(headerLayout);
-
 		return header;
+	}
+
+	private void setMargins(View view, int left, int top, int right, int bottom) {
+		if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+			ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+			p.setMargins(left, top, right, bottom);
+			view.requestLayout();
+		}
+	}
+
+	private int dip(float pix) {
+		return (int) TypedValue.applyDimension(
+				TypedValue.COMPLEX_UNIT_DIP,
+				pix,
+				getResources().getDisplayMetrics()
+		);
 	}
 }
