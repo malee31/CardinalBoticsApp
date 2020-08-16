@@ -1,13 +1,18 @@
 package com.example.cardinalbotics.ui.timelog;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -18,7 +23,7 @@ import com.example.cardinalbotics.R;
 import org.json.JSONObject;
 
 public class TimeLogFragment extends Fragment {
-	TextView textView;
+
 	private TimeLogViewModel timelogViewModel;
 
 	public View onCreateView(@NonNull LayoutInflater inflater,
@@ -40,10 +45,10 @@ public class TimeLogFragment extends Fragment {
 //			long longStartTime = Long.parseLong(AppSharedResources.getInstance(getActivity().getApplicationContext()).storeGet("com.example.cardinalbotics.timestart"));
 //			long totalTimeIn = Math.subtractExact(timeTnSeconds, longStartTime);
 //		}
-		int hour=5, minute=7;
-		textView = view.findViewById(R.id.time);
-		textView.setText("Did not Sign in");
-		textView.setText(hour+" : "+ minute);
+//		int hour=5, minute=7;
+//		textView = view.findViewById(R.id.time);
+//		textView.setText("Did not Sign in");
+//		textView.setText(hour+" : "+ minute);
 
 		shared.requestDataCalendar(new Response.Listener<JSONObject>() {
 			@Override
@@ -53,14 +58,56 @@ public class TimeLogFragment extends Fragment {
 					int month = 7, day = 10, year = 2020, hour=15, minute=7, second=20;
 					String didwhat = "Stuff done alot";
 					for(int log = 0; log < 10; log++) {
-						textView = view.findViewById(R.id.time);
-						textView.setText("Did not Sign in");
-						textView.setText(hour+" : "+ minute);
+						inEachRow(didwhat, month, day, year, hour, minute, second);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+	}
+	public void inEachRow(String didwhat, int month, int day, int year, int hour, int minute, int second) {
+		TableLayout layout = getView().findViewById(R.id.timesList);
+
+		TextView textView = getView().findViewById(R.id.timeSignIn);
+		textView.setText(hour+" : "+ minute+" : "+second);
+
+		TableRow newRow = new TableRow(getContext());
+		TableLayout.LayoutParams rowLayout = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT);
+		rowLayout.setMargins(0, 20, 0, 30);
+		newRow.setLayoutParams(rowLayout);
+
+		TextView text1 = new TextView(getContext());
+		text1.setText("Date: "+ day+"/"+month+"/"+year);
+		text1.setTextSize(10);
+		text1.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
+		text1.setTextColor(Color.parseColor("#7D1120"));
+		text1.setGravity(Gravity.CENTER_HORIZONTAL);
+
+		TextView text2 = new TextView(getContext());
+		text2.setText(hour+" : "+ minute+" : "+second);
+		text2.setTextSize(10);
+		text2.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
+		text2.setTextColor(Color.parseColor("#7D1120"));
+		text2.setGravity(Gravity.CENTER_HORIZONTAL);
+		text2.setBackgroundColor(Color.RED);
+
+
+		TextView text3 = new TextView(getContext());
+		text3.setText(didwhat);
+		text3.setTextSize(10);
+		text3.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
+		text3.setTextColor(Color.parseColor("#7D1120"));
+		text3.setGravity(Gravity.CENTER_HORIZONTAL);
+		text3.setBackgroundColor(Color.BLACK);
+
+
+		newRow.addView(text1);
+		newRow.addView(text2);
+		newRow.addView(text3);
+		layout.addView(newRow);
+	}
+	public void inEachRow(String textIn) {
+
 	}
 }
