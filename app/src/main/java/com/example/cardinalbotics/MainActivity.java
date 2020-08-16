@@ -88,36 +88,6 @@ public class MainActivity extends AppCompatActivity {
 				|| super.onSupportNavigateUp();
 	}
 
-	public void link(View view) {
-		String url = "https://";
-		if (view.getId() == R.id.button1) {
-			url = "https://www.team4159.org/";
-		} else if (view.getId() == R.id.button2) {
-			url = "https://drive.google.com/drive/folders/1i3iPyM8DhkLzd8wtGz9jn305scfvdKW2?usp=sharing";
-		} else if (view.getId() == R.id.button3) {
-			url = "https://docs.google.com/spreadsheets/d/1RdV0RmXQFTVhPmzd7iwHLWjBwX4bcGN4Cr1apzvLKGo/edit?usp=sharing";
-		} else if (view.getId() == R.id.button4) {
-			url = "https://docs.google.com/spreadsheets/d/10tFI-9L5lEg6GgEVudibQn9Qtt8VgiWgW3QRCUARfD8/edit";
-		} else if (view.getId() == R.id.button5) {
-			url = "https://calendar.google.com/calendar/b/1?cid=bmljaG9sYXMuZG9AdGVhbTQxNTkub3Jn";
-		} else if (view.getId() == R.id.button6) {
-			url = "https://docs.google.com/spreadsheets/d/1po_TE36FA-I7J2Y-Biw5snWdfSm_Cx055KVi1c43G7Y/edit?usp=sharing";
-		} else if (view.getId() == R.id.button7) {
-			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
-		} else if (view.getId() == R.id.button8) {
-			url = "https://www.youtube.com/channel/UCDc0DVwU0NN62J98qPxuurQ";
-		} else if (view.getId() == R.id.button9) {
-			url = "https://drive.google.com/drive/folders/1rBSu0S9LPT8yfo2YVwzZgNt_JxE4767O?usp=sharing";
-		} else if (view.getId() == R.id.button10) {
-			url = "https://docs.google.com/document/d/135V9yQGAYNLl9aOCvyKJVLOLIh2yPcCEuZ69nNrumYY/edit?usp=sharing";
-		} else if (view.getId() == R.id.button43) {
-			url = "https://docs.google.com/spreadsheets/d/1bxlkCrDhWk6DDmh_V5-hIsZIRDvSyAaHU_zUzfyM9Ys/edit?usp=sharing";
-		}else {
-			url = "https://docs.google.com/document/d/17RjyV-YCr4_zKslnDachYI_9EAM11asWkexZfDYN4CM/edit?usp=sharing";
-		}
-		Intent browserIntent = new Intent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-		startActivity(browserIntent);
-	}
 
 	public void training(View view) {
 		String url = "";
