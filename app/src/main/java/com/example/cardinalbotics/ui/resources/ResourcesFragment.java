@@ -138,7 +138,7 @@ public class ResourcesFragment extends Fragment {
 		setMargins(layout, 30, 30, 30, 50);
 	}
 
-	private void setMargins(View view, int left, int top, int right, int bottom) {
+	public void setMargins(View view, int left, int top, int right, int bottom) {
 		if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
 			ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
 			p.setMargins(left, top, right, bottom);

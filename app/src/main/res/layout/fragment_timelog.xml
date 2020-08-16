@@ -1,55 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--	xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--	xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--	xmlns:tools="http://schemas.android.com/tools"-->
+<!--	android:layout_width="match_parent"-->
+<!--	android:layout_height="match_parent">-->
+
+<!--	<ScrollView-->
+<!--		android:layout_width="match_parent"-->
+<!--		android:layout_height="match_parent"-->
+<!--		app:layout_constraintBottom_toBottomOf="parent"-->
+<!--		app:layout_constraintEnd_toEndOf="parent"-->
+<!--		app:layout_constraintStart_toStartOf="parent"-->
+<!--		app:layout_constraintTop_toTopOf="parent"-->
+<!--		app:layout_constraintVertical_bias="0.0">-->
+
+<!--	</ScrollView>-->
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<ScrollView
+	<TableLayout
+		android:layout_width="377dp"
+		android:layout_height="187dp"
+		app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+		android:id="@+id/timesList"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="20dp"
+
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<TableRow>
+
+			<TextView
+				android:layout_height="wrap_content"
+
+				android:layout_marginRight="20dp"
+				android:fontFamily="@font/roboto_bold"
+				android:gravity="center_horizontal"
+				android:text="Time Signed In:"
+				android:textColor="@color/colorPrimary"
+				android:textSize="30sp"
+				android:textStyle="normal" />
+
+			<TextView
+				android:id="@+id/timeSignIn"
+				android:layout_height="wrap_content"
+
+				android:layout_marginRight="20dp"
+				android:fontFamily="@font/roboto_bold"
+				android:gravity="center_horizontal"
+				android:textColor="@color/colorPrimary"
+				android:textSize="30sp"
+				android:textStyle="normal" />
+		</TableRow>
+
+	</TableLayout>
+
+	<ScrollView
+		android:id="@+id/scrollView2"
+		android:layout_width="420dp"
+		android:layout_height="529dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="1.0"
+		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.0">
+		app:layout_constraintVertical_bias="1.0">
 
 		<TableLayout
 			android:id="@+id/timesList"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_margin="20dp"
-			android:scrollbarThumbHorizontal="@android:drawable/btn_default"
-			app:layout_constraintBottom_toBottomOf="parent"
+			android:layout_marginTop="16dp"
+			android:orientation="vertical"
+			android:stretchColumns="*"
 			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="1.0"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent">
-
-			<TableRow>
-
-				<TextView
-					android:layout_height="wrap_content"
-					android:layout_marginRight="20dp"
-					android:layout_column="1"
-					android:fontFamily="@font/roboto_bold"
-					android:gravity="center_horizontal"
-					android:text="Time Signed In:"
-					android:textColor="@color/colorPrimary"
-					android:textSize="30sp"
-					android:textStyle="normal" />
-				<TextView
-					android:id="@+id/timeSignIn"
-					android:layout_height="wrap_content"
-					android:layout_marginRight="20dp"
-					android:layout_column="2"
-					android:fontFamily="@font/roboto_bold"
-					android:gravity="center_horizontal"
-					android:textColor="@color/colorPrimary"
-					android:textSize="30sp"
-					android:textStyle="normal" />
-			</TableRow>
-
-		</TableLayout>
+			app:layout_constraintTop_toTopOf="parent"></TableLayout>
 	</ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
