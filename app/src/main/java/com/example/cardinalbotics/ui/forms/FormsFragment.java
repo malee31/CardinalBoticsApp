@@ -58,6 +58,9 @@ public class FormsFragment extends Fragment {
 						if (!sectionedOff && type.trim().toLowerCase().equals("always active")) {
 							TableLayout layout = getView().findViewById(R.id.formsList);
 							TableRow newRow = new TableRow(getContext());
+							TableLayout.LayoutParams rowLayout = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT);
+							rowLayout.setMargins(0, 20, 0, 30);
+							newRow.setLayoutParams(rowLayout);
 
 							TextView text = new TextView(getContext());
 							text.setText("Permanent Forms");
