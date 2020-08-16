@@ -13,6 +13,7 @@ import android.widget.Space;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -32,7 +33,6 @@ public class ResourcesFragment extends Fragment {
 							 ViewGroup container, Bundle savedInstanceState) {
 		resourcesViewModel = new ViewModelProvider(this).get(ResourcesViewModel.class);
 		return inflater.inflate(R.layout.fragment_resources, container, false);
-
 	}
 
 	@Override
@@ -71,6 +71,7 @@ public class ResourcesFragment extends Fragment {
 		Button btn = new Button(getContext());
 		btn.setText(buttonText);
 		btn.setTextSize(20);
+		btn.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
 		btn.setBackgroundColor(Color.parseColor("#A17D1120"));
 		btn.setTag(url);
 
