@@ -24,94 +24,49 @@
 			app:layout_constraintHorizontal_bias="1.0"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent">
-
-<!--			<TableRow android:layout_width="match_parent">-->
+<!--			<TableRow>-->
 
 <!--				<TextView-->
 <!--					android:layout_height="wrap_content"-->
-<!--					android:layout_marginBottom="20dp"-->
 <!--					android:layout_span="2"-->
 <!--					android:fontFamily="@font/roboto_bold"-->
 <!--					android:gravity="center_horizontal"-->
-<!--					android:text="All Members"-->
+<!--					android:text="Milling"-->
 <!--					android:textColor="@color/colorPrimary"-->
 <!--					android:textSize="30sp"-->
 <!--					android:textStyle="bold" />-->
 <!--			</TableRow>-->
 
-<!--			<TableRow android:layout_width="match_parent">-->
+<!--			<TableRow-->
+<!--				android:layout_width="match_parent"-->
+<!--				android:layout_marginTop="20dp"-->
+<!--				android:layout_marginBottom="30dp">-->
 
 <!--				<Button-->
-<!--					android:id="@+id/button12"-->
-<!--					android:layout_width="wrap_content"-->
+<!--					android:id="@+id/button41"-->
+<!--					android:layout_width="match_parent"-->
 <!--					android:layout_height="wrap_content"-->
-<!--					android:layout_column="0"-->
 <!--					android:backgroundTint="#A17D1120"-->
 <!--					android:fontFamily="@font/roboto_bold"-->
 <!--					android:onClick="training"-->
-<!--					android:text="Safety"-->
+<!--					android:text="Youtube Playlist"-->
 <!--					android:textAlignment="center"-->
 <!--					android:textColor="#000000"-->
 <!--					android:textSize="16sp" />-->
 
 <!--				<Button-->
-<!--					android:id="@+id/button13"-->
-<!--					android:layout_width="wrap_content"-->
+<!--					android:id="@+id/button42"-->
+<!--					android:layout_width="match_parent"-->
 <!--					android:layout_height="wrap_content"-->
 <!--					android:layout_column="1"-->
 <!--					android:backgroundTint="#A17D1120"-->
 <!--					android:fontFamily="@font/roboto_bold"-->
 <!--					android:onClick="training"-->
-<!--					android:text="All Departments"-->
+<!--					android:text="Projects"-->
 <!--					android:textAlignment="center"-->
 <!--					android:textColor="#000000"-->
 <!--					android:textSize="16sp" />-->
-
 <!--			</TableRow>-->
-
-			<TableRow>
-
-				<TextView
-					android:layout_height="wrap_content"
-					android:layout_span="2"
-					android:fontFamily="@font/roboto_bold"
-					android:gravity="center_horizontal"
-					android:text="Milling"
-					android:textColor="@color/colorPrimary"
-					android:textSize="30sp"
-					android:textStyle="bold" />
-			</TableRow>
-
-			<TableRow
-				android:layout_width="match_parent"
-				android:layout_marginTop="20dp"
-				android:layout_marginBottom="30dp">
-
-				<Button
-					android:id="@+id/button41"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:backgroundTint="#A17D1120"
-					android:fontFamily="@font/roboto_bold"
-					android:onClick="training"
-					android:text="Youtube Playlist"
-					android:textAlignment="center"
-					android:textColor="#000000"
-					android:textSize="16sp" />
-
-				<Button
-					android:id="@+id/button42"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_column="1"
-					android:backgroundTint="#A17D1120"
-					android:fontFamily="@font/roboto_bold"
-					android:onClick="training"
-					android:text="Projects"
-					android:textAlignment="center"
-					android:textColor="#000000"
-					android:textSize="16sp" />
-			</TableRow>
 		</TableLayout>
 	</ScrollView>
 
