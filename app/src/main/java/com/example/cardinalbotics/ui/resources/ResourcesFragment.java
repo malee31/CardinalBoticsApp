@@ -76,37 +76,40 @@ public class ResourcesFragment extends Fragment {
 
 		switch (id) {
 			case "googledrive":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_google_drive, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_google_drive, 0);
 				break;
 			case "roster":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_roster, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_roster, 0);
 				break;
 			case "calendar":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_calendar, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_calendar, 0);
 				break;
 			case "forms":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_form, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_form, 0);
 				break;
 			case "website":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_teamweb, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_teamweb, 0);
 				break;
 			case "photo":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_photos, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_photos, 0);
 				break;
 			case "youtube":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_youtube, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_youtube, 0);
 				break;
 			case "handbook":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_handbook, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_handbook, 0);
 				break;
 			case "training":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_traindoc, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_traindoc, 0);
 				break;
 			case "irc":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_ircgamemanual, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_ircgamemanual, 0);
 				break;
 			case "grant":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_grant, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_grant, 0);
+				break;
+			case "money":
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_money, 0);
 				break;
 		}
 
