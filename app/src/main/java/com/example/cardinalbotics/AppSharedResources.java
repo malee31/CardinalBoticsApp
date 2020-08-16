@@ -30,7 +30,7 @@ public class AppSharedResources {
 	private static AppSharedResources allResources;
 	//Timer Variables. Start and End Times should be in Seconds
 	private static long start = 0, end = -1;
-	private static boolean running = false;
+	public static boolean running = false;
 	SharedPreferences sharedPrefs;
 	SharedPreferences.Editor prefsEditor;
 	private Context appContext;
@@ -66,6 +66,7 @@ public class AppSharedResources {
 		start = SystemClock.elapsedRealtime() / 1000;
 		prefsEditor.putLong("com.example.cardinalbotics.timerStart", start);
 		prefsEditor.commit();
+
 		running = true;
 	}
 

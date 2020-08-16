@@ -97,6 +97,7 @@ public class FormsFragment extends Fragment {
 		btn.setText(buttonText);
 		btn.setBackgroundColor(Color.parseColor("#A17D1120"));
 		btn.setTag(url);
+		btn.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
 
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override

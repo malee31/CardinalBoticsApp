@@ -1,6 +1,7 @@
 package com.example.cardinalbotics.ui.timelog;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,10 @@ import com.example.cardinalbotics.R;
 import com.example.cardinalbotics.ui.login.LoginViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
-public class TimeLogFragment extends Fragment {
+import static com.example.cardinalbotics.AppSharedResources.running;
 
+public class TimeLogFragment extends Fragment {
+	TextView textView;
 	private TimeLogViewModel timelogViewModel;
 
 	public View onCreateView(@NonNull LayoutInflater inflater,
@@ -29,6 +32,19 @@ public class TimeLogFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
-
+//		String startTime = AppSharedResources.getInstance(getActivity().getApplicationContext()).storeGet("com.example.cardinalbotics.timestart");
+//		long timeTnSeconds =SystemClock.elapsedRealtime()/1000;
+//		if(startTime.equals("No Entry")){
+//			return;
+//		}else if(running==false){
+//			return;
+//		}else{
+//			long longStartTime=Long.parseLong(AppSharedResources.getInstance(getActivity().getApplicationContext()).storeGet("com.example.cardinalbotics.timestart"));
+//			long totalTimeIn=Math.subtractExact(timeTnSeconds, longStartTime);
+//		}
+		int hour=5, minute=7;
+		textView = view.findViewById(R.id.time);
+		textView.setText("Did not Sign in");
+		textView.setText(hour+" : "+ minute);
 	}
 }
