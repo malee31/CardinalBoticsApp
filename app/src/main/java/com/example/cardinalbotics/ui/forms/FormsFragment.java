@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -65,8 +66,7 @@ public class FormsFragment extends Fragment {
 							TextView text = new TextView(getContext());
 							text.setText("Permanent Forms");
 							text.setTextSize(30);
-//							Typeface type = Typeface.createFromAsset(getAssets(),"fonts/arial.ttf");
-//							text.setTypeface(type);
+							text.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
 							text.setTextColor(Color.parseColor("#7D1120"));
 							text.setGravity(Gravity.CENTER_HORIZONTAL);
 

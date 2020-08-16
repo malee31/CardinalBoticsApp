@@ -25,6 +25,9 @@
 		<action
 			android:id="@+id/action_nav_home_to_nav_login"
 			app:destination="@id/nav_login" />
+		<action
+			android:id="@+id/action_nav_home_to_nav_timelog"
+			app:destination="@id/nav_timelog" />
 	</fragment>
 
 	<fragment
@@ -56,5 +59,10 @@
 		android:name="com.example.cardinalbotics.ui.login.LoginFragment"
 		android:label="@string/menu_login"
 		tools:layout="@layout/fragment_login" />
+	<fragment
+		android:id="@+id/nav_timelog"
+		android:name="com.example.cardinalbotics.ui.timelog.TimeLogFragment"
+		android:label="@string/menu_timelog"
+		tools:layout="@layout/fragment_timelog" />
 
 </navigation>

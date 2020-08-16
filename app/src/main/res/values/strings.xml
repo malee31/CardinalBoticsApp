@@ -13,6 +13,7 @@
 	<string name="menu_resources">Team Resources</string>
 	<string name="menu_training">Training</string>
 	<string name="menu_login">Login</string>
+	<string name="menu_timelog">Time Log</string>
 
 	<string name="outreach"><a href="https://en.wikipedia.org/wiki/Towel">Outreach/Volunteer</a></string>
 	<string name="codeacademy"><a href="https://en.wikipedia.org/wiki/Towel">CODEACADEMY</a></string>

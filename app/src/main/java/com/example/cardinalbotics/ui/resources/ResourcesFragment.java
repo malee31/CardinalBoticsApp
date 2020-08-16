@@ -13,6 +13,7 @@ import android.widget.Space;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -32,7 +33,6 @@ public class ResourcesFragment extends Fragment {
 							 ViewGroup container, Bundle savedInstanceState) {
 		resourcesViewModel = new ViewModelProvider(this).get(ResourcesViewModel.class);
 		return inflater.inflate(R.layout.fragment_resources, container, false);
-
 	}
 
 	@Override
@@ -71,42 +71,46 @@ public class ResourcesFragment extends Fragment {
 		Button btn = new Button(getContext());
 		btn.setText(buttonText);
 		btn.setTextSize(20);
+		btn.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
 		btn.setBackgroundColor(Color.parseColor("#A17D1120"));
 		btn.setTag(url);
 
 		switch (id) {
 			case "googledrive":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_google_drive, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_google_drive, 0);
 				break;
 			case "roster":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_roster, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_roster, 0);
 				break;
 			case "calendar":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_calendar, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_calendar, 0);
 				break;
 			case "forms":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_form, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_form, 0);
 				break;
 			case "website":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_teamweb, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_teamweb, 0);
 				break;
 			case "photo":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_photos, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_photos, 0);
 				break;
 			case "youtube":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_youtube, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_youtube, 0);
 				break;
 			case "handbook":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_handbook, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_handbook, 0);
 				break;
 			case "training":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_traindoc, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_traindoc, 0);
 				break;
 			case "irc":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_ircgamemanual, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_ircgamemanual, 0);
 				break;
 			case "grant":
-				btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_resource_grant, 0, 0, 0);
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_grant, 0);
+				break;
+			case "money":
+				btn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_resource_money, 0);
 				break;
 		}
 
