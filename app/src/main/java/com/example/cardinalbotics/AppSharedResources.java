@@ -67,6 +67,14 @@ public class AppSharedResources {
 		prefsEditor.putLong("com.example.cardinalbotics.timerStart", start);
 		prefsEditor.commit();
 
+		requestData("http://18.221.165.138/src/endpoints/signin.php?password=" + storeGet("password"), new Response.Listener<JSONObject>() {
+			@Override
+			public void onResponse(JSONObject response) {
+				System.out.println("Success?");
+				System.out.println(response.toString());
+			}
+		});
+
 		running = true;
 	}
 
