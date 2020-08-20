@@ -36,6 +36,10 @@ public class LoginFragment extends Fragment {
 		view.findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				if(AppSharedResources.running) {
+					Snackbar.make(v, "Can't change password while signed in", Snackbar.LENGTH_SHORT).show();
+					return;
+				}
 				EditText pw = (EditText) (getView().findViewById(R.id.password));
 				String password = pw.getText().toString();
 				AppSharedResources.getInstance(getActivity().getApplicationContext()).store("password", password);
@@ -43,6 +47,7 @@ public class LoginFragment extends Fragment {
 				Snackbar.make(v, "PASSWORD SET TO: " + password, Snackbar.LENGTH_SHORT).show();
 				((TextView) getActivity().findViewById(R.id.studentId)).setText(password);
 				((EditText) getActivity().findViewById(R.id.password)).setText("");
+//				AppSharedResources.
 			}
 		});
 	}
