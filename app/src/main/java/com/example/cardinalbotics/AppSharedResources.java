@@ -15,6 +15,7 @@ import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONObject;
 
@@ -67,13 +68,25 @@ public class AppSharedResources {
 		prefsEditor.putLong("com.example.cardinalbotics.timerStart", start);
 		prefsEditor.commit();
 
-		requestData("http://18.221.165.138/src/endpoints/signin.php?password=" + storeGet("password"), new Response.Listener<JSONObject>() {
+		StringRequest stringRequest = new StringRequest(Request.Method.GET,
+				"http://18.221.165.138/src/endpoints/signin.php?password=" + storeGet("password"),
+				new Response.Listener<String>() {
+					@Override
+					public void onResponse(String response) {
+						// Display the first 500 characters of the response string.
+						System.out.println("Seemed to work! FIRST TRY!");
+						System.out.println("Look! -> " + response.toString());
+					}
+				}, new Response.ErrorListener() {
+
 			@Override
-			public void onResponse(JSONObject response) {
-				System.out.println("Success?");
-				System.out.println(response.toString());
+			public void onErrorResponse(VolleyError error) {
+				System.out.println("That didn't work!");
+				System.out.println(error.toString());
 			}
 		});
+
+		requestQueue.add(stringRequest);
 
 		running = true;
 	}
