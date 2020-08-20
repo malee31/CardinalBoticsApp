@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.example.cardinalbotics.AppSharedResources;
 import com.example.cardinalbotics.R;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class TimeLogFragment extends Fragment {
@@ -51,14 +52,15 @@ public class TimeLogFragment extends Fragment {
 //		textView.setText("Did not Sign in");
 //		textView.setText(hour+" : "+ minute);
 
-		shared.requestDataCalendar(new Response.Listener<JSONObject>() {
+		shared.fetchUserData(new Response.Listener<JSONArray>() {
 			@Override
-			public void onResponse(JSONObject response) {
+			public void onResponse(JSONArray response) {
 				try {
 //					response = new JSONObject("{\"log\": [[\"timeIn\":\"12/9/2020T15:30:30\", \"timeOut\":\"12/9/2020T17:45:00\", \"info\": \"Did stuffs\"],[\"timeIn\":\"12/19/2020T15:30:30\", \"timeOut\":\"12/19/2020T17:45:00\", \"info\": \"Did more stuffs\"],[\"timeIn\":\"12/21/2020T15:30:30\", \"" + "timeOut\":\"12/21/2020T18:00:00\", \"info\": \"Finished stuffs\"]]}");
 					int month = 7, day = 10, year = 2020, hour=15, minute=7, second=20;
 					String didwhat = "Stuff done alot";
-					for(int log = 0; log < 10; log++) {
+					for(int log = 0; log < response.length(); log++) {
+						JSONArray entry = response.getJSONArray(log);
 						inEachRow(didwhat, month, day, year, hour, minute, second);
 					}
 				} catch (Exception e) {
@@ -67,6 +69,7 @@ public class TimeLogFragment extends Fragment {
 			}
 		});
 	}
+
 	public void inEachRow(String didwhat, int month, int day, int year, int hour, int minute, int second) {
 		TableLayout layout = getView().findViewById(R.id.timesList);
 

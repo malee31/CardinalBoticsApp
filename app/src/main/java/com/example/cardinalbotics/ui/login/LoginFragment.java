@@ -47,7 +47,7 @@ public class LoginFragment extends Fragment {
 				Snackbar.make(v, "PASSWORD SET TO: " + password, Snackbar.LENGTH_SHORT).show();
 				((TextView) getActivity().findViewById(R.id.studentId)).setText(password);
 				((EditText) getActivity().findViewById(R.id.password)).setText("");
-//				AppSharedResources.
+				AppSharedResources.getInstance(getActivity().getApplicationContext()).accountExistify();
 			}
 		});
 	}

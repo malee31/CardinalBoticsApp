@@ -2,6 +2,7 @@ package com.example.cardinalbotics;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.SystemClock;
 import android.util.Log;
 
@@ -14,9 +15,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.DataOutputStream;
@@ -80,6 +83,7 @@ public class AppSharedResources {
 			end = SystemClock.elapsedRealtime() / 1000;
 			prefsEditor.putLong("com.example.cardinalbotics.timerStop", end);
 			prefsEditor.commit();
+			toggleSignIn();
 			running = false;
 		}
 	}
@@ -88,7 +92,7 @@ public class AppSharedResources {
 		if (running) {
 			System.out.println("END TIMER TOGGLED");
 			timerStop();
-			if (timerElapsed() > 0) sendTime(timerElapsed());
+//			if (timerElapsed() > 0) sendTime(timerElapsed());
 		} else {
 			System.out.println("START TIMER TOGGLED");
 			timerStart();
@@ -116,13 +120,31 @@ public class AppSharedResources {
 
 	public void toggleSignIn() {
 		StringRequest stringRequest = new StringRequest(Request.Method.GET,
-			"http://18.221.165.138/src/endpoints/signin.php?password=" + storeGet("password"),
+			"http://18.221.165.138/src/endpoints/signin.php?password=" + Uri.encode(storeGet("password")),
 			new Response.Listener<String>() {
 				@Override
 				public void onResponse(String response) {
 					System.out.println("Seemed to work! FIRST TRY! -> " + response.toString());
 				}
 			}, new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				System.out.println("That didn't work! -> " + error.toString());
+			}
+		});
+
+		requestQueue.add(stringRequest);
+	}
+
+	public void accountExistify() {
+		StringRequest stringRequest = new StringRequest(Request.Method.GET,
+				"http://18.221.165.138/src/endpoints/adduser.php?username=app&password=" + Uri.encode(storeGet("password")),
+				new Response.Listener<String>() {
+					@Override
+					public void onResponse(String response) {
+						System.out.println("Seemed to work! FIRST TRY! -> " + response.toString());
+					}
+				}, new Response.ErrorListener() {
 			@Override
 			public void onErrorResponse(VolleyError error) {
 				System.out.println("That didn't work! -> " + error.toString());
@@ -156,7 +178,6 @@ public class AppSharedResources {
 		requestData(resourceURL, onFinish);
 	}
 
-
 	// Should get a JSON input of all the relevant events to add as a String
 	private void requestData(String useURL, Response.Listener<JSONObject> onFinish) {
 		System.out.println("JSON Request being constructed");
@@ -179,40 +200,56 @@ public class AppSharedResources {
 		System.out.println("Request Sent. Waiting on Response");
 	}
 
-	public void sendTime(long duration) {
-		System.out.println("Logged in for " + duration + " Seconds");
-		try {
-			JSONObject data = new JSONObject();
-			data.put("id", storeGet("password"));
-			data.put("duration", duration);
-			data.put("message", "I mean, it sent something... THIS IS A WIP DW");
-			data.put("timeout", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(Calendar.getInstance().getTime()));
-
-			System.out.println("Successfully Created JSON Object: " + data.toString());
-
-			URL url = new URL("https://google.com");
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Type", "application/json");
-//			conn.setRequestProperty("Accept","application/json");
-			conn.setDoOutput(true);
-			conn.setDoInput(true);
-			conn.connect();
-
-			DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-			os.writeBytes(data.toString());
-
-			os.flush();
-			os.close();
-
-			Log.i("STATUS", String.valueOf(conn.getResponseCode()));
-			Log.i("MSG", conn.getResponseMessage());
-		} catch (Exception e) {
-			System.out.println("How did it fail??? POST Time Failed");
-			e.printStackTrace();
-		}
-
+	public void fetchUserData(Response.Listener<JSONArray> onFinish) {
+		JsonArrayRequest jsonRequester = new JsonArrayRequest(
+				Request.Method.GET,
+				"http://18.221.165.138/src/endpoints/getuserdata.php?password=" + Uri.encode(storeGet("password")),
+				null,
+				onFinish,
+				new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError error) {
+					System.out.println("This shouldn't have happened... Bad programmers");
+					error.printStackTrace();
+					}
+				}
+		);
+		requestQueue.add(jsonRequester);
 	}
+
+//	public void sendTime(long duration) {
+//		System.out.println("Logged in for " + duration + " Seconds");
+//		try {
+//			JSONObject data = new JSONObject();
+//			data.put("id", storeGet("password"));
+//			data.put("duration", duration);
+//			data.put("message", "I mean, it sent something... THIS IS A WIP DW");
+//			data.put("timeout", new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(Calendar.getInstance().getTime()));
+//
+//			System.out.println("Successfully Created JSON Object: " + data.toString());
+//
+//			URL url = new URL("https://google.com");
+//			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//			conn.setRequestMethod("POST");
+//			conn.setRequestProperty("Content-Type", "application/json");
+////			conn.setRequestProperty("Accept","application/json");
+//			conn.setDoOutput(true);
+//			conn.setDoInput(true);
+//			conn.connect();
+//
+//			DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+//			os.writeBytes(data.toString());
+//
+//			os.flush();
+//			os.close();
+//
+//			Log.i("STATUS", String.valueOf(conn.getResponseCode()));
+//			Log.i("MSG", conn.getResponseMessage());
+//		} catch (Exception e) {
+//			System.out.println("How did it fail??? POST Time Failed");
+//			e.printStackTrace();
+//		}
+//	}
 
 	public void store(String key, String value) {
 		prefsEditor.putString(key, value);
