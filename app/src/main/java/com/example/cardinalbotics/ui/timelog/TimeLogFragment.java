@@ -37,7 +37,7 @@ public class TimeLogFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
-		AppSharedResources shared = AppSharedResources.getInstance(getActivity().getApplicationContext());
+		final AppSharedResources shared = AppSharedResources.getInstance(getActivity().getApplicationContext());
 //		String startTime = shared.storeGet("com.example.cardinalbotics.timestart");
 //		long timeTnSeconds = SystemClock.elapsedRealtime()/1000;
 //		if(startTime.equals("No Entry")) {
@@ -68,7 +68,9 @@ public class TimeLogFragment extends Fragment {
 						long timeIn = entry.getLong(3);
 						String tasksDone = "Did stuff";
 
-						calendar.setTimeInMillis(timeIn);
+						if(!password.equals(shared.storeGet("password"))) continue;
+
+						calendar.setTimeInMillis(timeIn * 1000);
 
 						int year = calendar.get(Calendar.YEAR);
 						int month = calendar.get(Calendar.MONTH) + 1;
@@ -76,7 +78,7 @@ public class TimeLogFragment extends Fragment {
 						int hour = calendar.get(Calendar.HOUR_OF_DAY);
 						int minute = calendar.get(Calendar.MINUTE);
 
-						inEachRow(tasksDone, month, day, year, hour, minute);
+						inEachRow(tasksDone, month, day, year, hour, minute, timeIn);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -85,7 +87,7 @@ public class TimeLogFragment extends Fragment {
 		});
 	}
 
-	public void inEachRow(String tasksDone, int month, int day, int year, int hour, int minute) {
+	public void inEachRow(String tasksDone, int month, int day, int year, int hour, int minute, long timeIn) {
 		TableLayout layout = getView().findViewById(R.id.timesList);
 
 		TextView textView = getView().findViewById(R.id.timeSignIn);
@@ -95,23 +97,35 @@ public class TimeLogFragment extends Fragment {
 //		TableLayout.LayoutParams rowLayout = new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT);
 ////		rowLayout.setMargins(0, 20, 0, 30);
 //		newRow.setLayoutParams(rowLayout);
+		String text = "Logged In " + month + "/" + day + "/" + year + " at " + hour % 12 + " : " + minute + (hour / 12 >= 1 ? "PM" : "AM");
+//		if(timeIn / 3600 >= 1) {
+//			text += timeIn / 3600 + " hours ";
+//			timeIn %= 3600;
+//		}
+//		if(timeIn / 60 >= 0) {
+//			text += timeIn / 60 + " minutes ";
+//			timeIn %= 60;
+//		}
+//		text += timeIn + " seconds ";
 
+		TextView timeLog = new TextView(getContext());
+		timeLog.setText(text);
+		timeLog.setTextSize(20);
+		timeLog.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
+		timeLog.setTextColor(Color.parseColor("#7D1120"));
+		timeLog.setBackgroundColor(Color.parseColor("#FFFFFF"));
+		TableRow.LayoutParams textLayout = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
+		timeLog.setLayoutParams(textLayout);
 
-		TextView text1 = new TextView(getContext());
-		text1.setText("Date: " + month + "/" + day + "/" + year);
-		text1.setTextSize(20);
-		text1.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
-		text1.setTextColor(Color.parseColor("#7D1120"));
+		timeLog.setGravity(Gravity.CENTER);
 
-		text1.setGravity(Gravity.CENTER_HORIZONTAL);
-
-		TextView text2 = new TextView(getContext());
-		text2.setText(hour + " : " + minute);
-		text2.setTextSize(20);
-		text2.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
-		text2.setTextColor(Color.parseColor("#7D1120"));
-		text2.setGravity(Gravity.CENTER_HORIZONTAL);
-		setMargins(text2, 50, 0, 0, 30);
+//		TextView text2 = new TextView(getContext());
+//		text2.setText(hour + " : " + minute);
+//		text2.setTextSize(20);
+//		text2.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
+//		text2.setTextColor(Color.parseColor("#7D1120"));
+//		text2.setGravity(Gravity.CENTER_HORIZONTAL);
+//		setMargins(text2, 50, 0, 0, 30);
 //		text2.setBackgroundColor(Color.RED);
 
 
@@ -123,11 +137,10 @@ public class TimeLogFragment extends Fragment {
 //		text3.setGravity(Gravity.CENTER_HORIZONTAL);
 //		text3.setBackgroundColor(Color.BLACK);
 
-		layout.addView(newRow);
-		newRow.addView(text1);
-		newRow.addView(text2);
+		newRow.addView(timeLog);
+//		newRow.addView(text2);
 //		newRow.addView(text3);
-
+		layout.addView(newRow);
 	}
 
 	public void setMargins(View view, int left, int top, int right, int bottom) {
