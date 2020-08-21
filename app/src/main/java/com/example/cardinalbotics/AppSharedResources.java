@@ -203,7 +203,7 @@ public class AppSharedResources {
 	public void fetchUserData(Response.Listener<JSONArray> onFinish) {
 		JsonArrayRequest jsonRequester = new JsonArrayRequest(
 				Request.Method.GET,
-				"http://18.221.165.138/src/endpoints/getuserdata.php?password=" + Uri.encode(storeGet("password")),
+				"http://18.221.165.138/src/endpoints/getdata.php?password=" + Uri.encode(storeGet("password")),
 				null,
 				onFinish,
 				new Response.ErrorListener() {
