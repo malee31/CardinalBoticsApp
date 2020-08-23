@@ -2,6 +2,9 @@ package com.example.cardinalbotics.ui.timelog;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Layout;
+import android.text.TextUtils;
+import android.util.LayoutDirection;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +24,7 @@ import com.example.cardinalbotics.AppSharedResources;
 import com.example.cardinalbotics.R;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -53,22 +57,27 @@ public class TimeLogFragment extends Fragment {
 //		textView.setText("Did not Sign in");
 //		textView.setText(hour+" : "+ minute);
 
-		shared.fetchUserData(new Response.Listener<JSONArray>() {
+		shared.fetchUserData(new Response.Listener<JSONObject>() {
 			@Override
-			public void onResponse(JSONArray response) {
+			public void onResponse(JSONObject response) {
 				try {
 //					response = new JSONObject("{\"log\": [[\"timeIn\":\"12/9/2020T15:30:30\", \"timeOut\":\"12/9/2020T17:45:00\", \"info\": \"Did stuffs\"],[\"timeIn\":\"12/19/2020T15:30:30\", \"timeOut\":\"12/19/2020T17:45:00\", \"info\": \"Did more stuffs\"],[\"timeIn\":\"12/21/2020T15:30:30\", \"" + "timeOut\":\"12/21/2020T18:00:00\", \"info\": \"Finished stuffs\"]]}");
 					System.out.println("Res: " + response.toString());
 					Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("America/Los_Angeles"));
-					for (int log = 1; log < response.length(); log++) {
-						JSONArray entry = response.getJSONArray(log);
-						String name = entry.getString(0);
-						String password = entry.getString(1);
-						boolean signedIn = entry.getBoolean(2);
-						long timeIn = entry.getLong(3);
-						String tasksDone = "Did stuff";
+					JSONArray entries = response.getJSONArray("sessions");
+//					String name = response.getString("username");
+					String password = response.getString("password");
+					boolean signedIn = response.getBoolean("signedIn");
 
-						if(!password.equals(shared.storeGet("password"))) continue;
+					TextView textView = getView().findViewById(R.id.timeSignedIn);
+					textView.setText(password + " is Signed " + (signedIn ? "In" : "Out"));
+
+					for (int log = 0; log < entries.length(); log++) {
+						JSONObject entry = entries.getJSONObject(log);
+						long timeOut = entry.getLong("date");
+						long timeClocked = entry.getLong("time");
+						String did = entry.getString("did");
+						long timeIn = timeOut - timeClocked;
 
 						calendar.setTimeInMillis(timeIn * 1000);
 
@@ -78,7 +87,7 @@ public class TimeLogFragment extends Fragment {
 						int hour = calendar.get(Calendar.HOUR_OF_DAY);
 						int minute = calendar.get(Calendar.MINUTE);
 
-						inEachRow(tasksDone, month, day, year, hour, minute, timeIn);
+						inEachRow(month, day, year, hour, minute, timeClocked, did);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -87,37 +96,35 @@ public class TimeLogFragment extends Fragment {
 		});
 	}
 
-	public void inEachRow(String tasksDone, int month, int day, int year, int hour, int minute, long timeIn) {
+	public void inEachRow(int month, int day, int year, int hour, int minute, long timeIn, String did) {
 		TableLayout layout = getView().findViewById(R.id.timesList);
-
-		TextView textView = getView().findViewById(R.id.timeSignIn);
-		textView.setText(hour + " : " + minute);
-
 		TableRow newRow = new TableRow(getContext());
 //		TableLayout.LayoutParams rowLayout = new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT);
 ////		rowLayout.setMargins(0, 20, 0, 30);
 //		newRow.setLayoutParams(rowLayout);
-		String text = "Logged In " + month + "/" + day + "/" + year + " at " + hour % 12 + " : " + minute + (hour / 12 >= 1 ? "PM" : "AM");
-//		if(timeIn / 3600 >= 1) {
-//			text += timeIn / 3600 + " hours ";
-//			timeIn %= 3600;
-//		}
-//		if(timeIn / 60 >= 0) {
-//			text += timeIn / 60 + " minutes ";
-//			timeIn %= 60;
-//		}
-//		text += timeIn + " seconds ";
+		String text = "Logged In " + month + "/" + day + "/" + year + " at " + hour % 12 + " : " + minute + (hour / 12 >= 1 ? "PM" : "AM") + " for ";
+
+		// Format time as hour : minute : second
+		text += timeIn / 3600 + " : ";
+		timeIn %= 3600;
+
+		text += timeIn / 60 + " : ";
+		timeIn %= 60;
+
+		text += timeIn + "\nTasks: " + did;
 
 		TextView timeLog = new TextView(getContext());
-		timeLog.setText(text);
-		timeLog.setTextSize(20);
 		timeLog.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
-		timeLog.setTextColor(Color.parseColor("#7D1120"));
 		timeLog.setBackgroundColor(Color.parseColor("#FFFFFF"));
-		TableRow.LayoutParams textLayout = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT);
-		timeLog.setLayoutParams(textLayout);
+		timeLog.setTextColor(Color.parseColor("#7D1120"));
+		timeLog.setTextSize(20);
+		timeLog.setSingleLine(false);
+		timeLog.setText(text);
 
-		timeLog.setGravity(Gravity.CENTER);
+		TableRow.LayoutParams textLayout = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f);
+		textLayout.setMargins(20, 10, 20, 10);
+		timeLog.setGravity(Gravity.START);
+		timeLog.setLayoutParams(textLayout);
 
 //		TextView text2 = new TextView(getContext());
 //		text2.setText(hour + " : " + minute);
@@ -137,9 +144,9 @@ public class TimeLogFragment extends Fragment {
 //		text3.setGravity(Gravity.CENTER_HORIZONTAL);
 //		text3.setBackgroundColor(Color.BLACK);
 
-		newRow.addView(timeLog);
 //		newRow.addView(text2);
 //		newRow.addView(text3);
+		newRow.addView(timeLog);
 		layout.addView(newRow);
 	}
 

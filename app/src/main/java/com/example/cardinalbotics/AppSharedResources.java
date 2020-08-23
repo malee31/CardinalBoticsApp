@@ -71,27 +71,27 @@ public class AppSharedResources {
 		prefsEditor.putLong("com.example.cardinalbotics.timerStart", start);
 		prefsEditor.commit();
 
-		toggleSignIn();
+		toggleSignIn("Logged In");
 
 		running = true;
 	}
 
-	public void timerStop() {
+	public void timerStop(String did) {
 		if (!running) {
 			System.out.println("The Timer is not running!!!");
 		} else {
 			end = SystemClock.elapsedRealtime() / 1000;
 			prefsEditor.putLong("com.example.cardinalbotics.timerStop", end);
 			prefsEditor.commit();
-			toggleSignIn();
+			toggleSignIn(did);
 			running = false;
 		}
 	}
 
-	public void timerToggle() {
+	public void timerToggle(String did) {
 		if (running) {
 			System.out.println("END TIMER TOGGLED");
-			timerStop();
+			timerStop(did);
 //			if (timerElapsed() > 0) sendTime(timerElapsed());
 		} else {
 			System.out.println("START TIMER TOGGLED");
@@ -118,9 +118,10 @@ public class AppSharedResources {
 		}
 	}
 
-	public void toggleSignIn() {
+	public void toggleSignIn(String did) {
+		System.out.println("Did: " + did);
 		StringRequest stringRequest = new StringRequest(Request.Method.GET,
-			"http://18.221.165.138/src/endpoints/signin.php?password=" + Uri.encode(storeGet("password")),
+			(running ? "http://18.221.165.138/src/endpoints/signout.php?password=" : "http://18.221.165.138/src/endpoints/signin.php?password=") + Uri.encode(storeGet("password")) + "&did=" + Uri.encode(did),
 			new Response.Listener<String>() {
 				@Override
 				public void onResponse(String response) {
@@ -200,10 +201,10 @@ public class AppSharedResources {
 		System.out.println("Request Sent. Waiting on Response");
 	}
 
-	public void fetchUserData(Response.Listener<JSONArray> onFinish) {
-		JsonArrayRequest jsonRequester = new JsonArrayRequest(
+	public void fetchUserData(Response.Listener<JSONObject> onFinish) {
+		JsonObjectRequest jsonRequester = new JsonObjectRequest(
 				Request.Method.GET,
-				"http://18.221.165.138/src/endpoints/getdata.php?password=" + Uri.encode(storeGet("password")),
+				"http://18.221.165.138/src/endpoints/getuserdata.php?password=" + Uri.encode(storeGet("password")),
 				null,
 				onFinish,
 				new Response.ErrorListener() {
