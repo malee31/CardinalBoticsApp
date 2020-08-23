@@ -70,7 +70,7 @@ public class TimeLogFragment extends Fragment {
 					boolean signedIn = response.getBoolean("signedIn");
 
 					TextView textView = getView().findViewById(R.id.timeSignedIn);
-					textView.setText(password + " is Signed " + (signedIn ? "In" : "Out"));
+					textView.setText("Signed " + (signedIn ? "In" : "Out") + ": " + password);
 
 					for (int log = 0; log < entries.length(); log++) {
 						JSONObject entry = entries.getJSONObject(log);
@@ -98,7 +98,8 @@ public class TimeLogFragment extends Fragment {
 
 	public void inEachRow(int month, int day, int year, int hour, int minute, long timeIn, String did) {
 		TableLayout layout = getView().findViewById(R.id.timesList);
-		TableRow newRow = new TableRow(getContext());
+		TableRow timeRow = new TableRow(getContext());
+		TableRow taskRow = new TableRow(getContext());
 //		TableLayout.LayoutParams rowLayout = new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT);
 ////		rowLayout.setMargins(0, 20, 0, 30);
 //		newRow.setLayoutParams(rowLayout);
@@ -111,12 +112,11 @@ public class TimeLogFragment extends Fragment {
 		text += timeIn / 60 + " : ";
 		timeIn %= 60;
 
-		text += timeIn + "\nTasks: " + did;
+		text += timeIn;
 
 		TextView timeLog = new TextView(getContext());
 		timeLog.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
-		timeLog.setBackgroundColor(Color.parseColor("#FFFFFF"));
-		timeLog.setTextColor(Color.parseColor("#7D1120"));
+		timeLog.setTextColor(getResources().getColor(R.color.cardinalWhite));
 		timeLog.setTextSize(20);
 		timeLog.setSingleLine(false);
 		timeLog.setText(text);
@@ -126,35 +126,20 @@ public class TimeLogFragment extends Fragment {
 		timeLog.setGravity(Gravity.START);
 		timeLog.setLayoutParams(textLayout);
 
-//		TextView text2 = new TextView(getContext());
-//		text2.setText(hour + " : " + minute);
-//		text2.setTextSize(20);
-//		text2.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
-//		text2.setTextColor(Color.parseColor("#7D1120"));
-//		text2.setGravity(Gravity.CENTER_HORIZONTAL);
-//		setMargins(text2, 50, 0, 0, 30);
-//		text2.setBackgroundColor(Color.RED);
+		TextView tasks = new TextView(getContext());
+		tasks.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
+		tasks.setTextColor(getResources().getColor(R.color.colorAccent));
+		tasks.setGravity(Gravity.START);
+		tasks.setTextSize(20);
+		tasks.setText("Notes: " + did);
 
+		TableRow.LayoutParams tasksLayout = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f);
+		tasksLayout.setMargins(20, 0, 20, 10);
+		tasks.setLayoutParams(tasksLayout);
 
-//		TextView text3 = new TextView(getContext());
-//		text3.setText(didwhat);
-//		text3.setTextSize(20);
-//		text3.setTypeface(ResourcesCompat.getFont(getContext(), R.font.roboto_bold));
-//		text3.setTextColor(Color.parseColor("#7D1120"));
-//		text3.setGravity(Gravity.CENTER_HORIZONTAL);
-//		text3.setBackgroundColor(Color.BLACK);
-
-//		newRow.addView(text2);
-//		newRow.addView(text3);
-		newRow.addView(timeLog);
-		layout.addView(newRow);
-	}
-
-	public void setMargins(View view, int left, int top, int right, int bottom) {
-		if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-			ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-			p.setMargins(left, top, right, bottom);
-			view.requestLayout();
-		}
+		timeRow.addView(timeLog);
+		taskRow.addView(tasks);
+		layout.addView(timeRow);
+		layout.addView(taskRow);
 	}
 }
